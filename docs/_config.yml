@@ -1,5 +1,5 @@
 # In _config.yml
-logo: logo.jpg
+logo: logo.jpeg
 execute:
   execute_notebooks: off
 
