@@ -8,13 +8,24 @@ options: # The options key will be applied to all chapters, but not sub-sections
   numbered: False
 
 parts:
-- caption: Module1
+- caption: Intro to Data Analysis
   chapters:
   - file: 10_intro/10_Module1
     sections:
     - file: 10_intro/20_WhatIsDataAnalysis
     - file: 10_intro/30_CloneFromGitHub
-    - file: 10_intro/40_WhatIsDataAnalysis
+    - file: 10_intro/40_Python
     - file: 10_intro/50_Python_Tutorial.ipynb
     - file: 10_intro/60_CSV
     - file: 10_intro/70_Assignment1
+  - file: 20_data_wrangling/09_Module2
+    sections:
+    - file: 20_data_wrangling/10_Introduction
+    - file: 20_data_wrangling/20_Pandas
+    - file: 20_data_wrangling/25_Pandas.ipynb
+    - file: 20_data_wrangling/35_Discussion
+    - file: 20_data_wrangling/40_GroupBy
+    - file: 20_data_wrangling/45_Groupby.ipynb
+    - file: 20_data_wrangling/50_Assignment2
+    - file: 20_data_wrangling/55_MarathonShoes.ipynb
+

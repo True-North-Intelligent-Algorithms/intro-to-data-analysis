@@ -1,12 +1,3 @@
----
-layout: basic
----
-
-<div class="nav-links"> 
-<a href=" {{ site.baseurl }}/docs/courses/intro-to-data-analysis/module1/Discussion" class="prev-link">&larr; Previous Page</a> 
-<a href=" {{ site.baseurl }}/docs/courses/intro-to-data-analysis/module1/Python" class="next-link">Next Page &rarr;</a> 
-</div>
-
 
 ## Clone from GitHub
 
@@ -16,16 +7,16 @@ Once you have GitHub desktop running
 
 ### Go to Options
 
-<img src="githubdesktop1.jpg" width="700">  
+![Can't find image](githubdesktop1.jpg)
 
 ###  Sign into your Github account
 
-<img src="githubdesktop2.jpg" width="700">  
-<img src="githubdesktop3.jpg" width="700">  
+![Can't find image](githubdesktop2.jpg)
+![Can't find image](githubdesktop3.jpg)
 
 ###  Go to 'Clone a repository'
 
-<img src="githubdesktop4a.jpg" width="700">
+![Can't find image](githubdesktop4a.jpg)
 
 ###  Choose the 'URL' tab and enter 
 
@@ -35,5 +26,5 @@ Local Path: __The path where you want to put the repository__
 
 Note: Make sure 'Local Path' is in your user directory (in my case it is C:\Users\bnort\INF428') so you can find the files from Python notebook. 
 
-<img src="githubdesktop4.jpg" width="700">  
+![Can't find image](githubdesktop4.jpg)
 

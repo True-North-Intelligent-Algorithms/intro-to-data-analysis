@@ -1,12 +1,3 @@
----
-layout: basic
----
-
-<div class="nav-links"> 
-<a href=" {{ site.baseurl }}/docs/courses/intro-to-data-analysis/module1/CloneFromGitHub" class="prev-link">&larr; Previous Page</a> 
-<a href=" {{ site.baseurl }}/docs/courses/intro-to-data-analysis/module1/PythonReview" class="next-link">Next Page &rarr;</a> 
-</div>
-
 
 ## Python via Anaconda
 
@@ -38,7 +29,7 @@ Note: Make sure you get the version with Python 3.7 (or higher) (NOT 2.7) or the
 ### Run IPython notebook 'hello world'
 
 1.  Start Anaconda Navigator  
-<img src="anaconda.jpg" width="400">  
+![Can't find image](anaconda.jpg)
 2.  Start Jupyter Notebook  
 3.  It will launch in a web browser.  The web-browser should show all the files and directories in your home folder.  
 4.  In the web browser browse to the 'inf-428-data-analytics' folder (the folder you cloned from github), then browse to 'python/notebooks/introduction/ and open PythonNotebookHelloWorld.ipynb.   
