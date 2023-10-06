@@ -10,6 +10,6 @@ options: # The options key will be applied to all chapters, but not sub-sections
 parts:
 - caption: Module1
   chapters:
+  - file: 10_intro/10_Module1
     sections:
-    - file: 10_intro/10_Module1
     - file: 10_intro/20_WhatIsDataAnalysis
