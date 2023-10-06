@@ -13,3 +13,8 @@ parts:
   - file: 10_intro/10_Module1
     sections:
     - file: 10_intro/20_WhatIsDataAnalysis
+    - file: 10_intro/30_CloneFromGitHub
+    - file: 10_intro/40_WhatIsDataAnalysis
+    - file: 10_intro/50_Python_Tutorial.ipynb
+    - file: 10_intro/60_CSV
+    - file: 10_intro/70_Assignment1
