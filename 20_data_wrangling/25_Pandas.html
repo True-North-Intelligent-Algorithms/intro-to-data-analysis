@@ -1,0 +1,789 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Pandas Tutorial &#8212; My Jupyter Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '20_data_wrangling/25_Pandas';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Discussion 2" href="35_Discussion.html" />
+    <link rel="prev" title="PANDAS" href="20_Pandas.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.jpeg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.jpeg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Intro to Data Analysis</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10_intro/10_Module1.html">Module 1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../10_intro/20_WhatIsDataAnalysis.html">What is Data Analysis?</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../10_intro/30_CloneFromGitHub.html">Clone from GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_intro/40_Python.html">Python via Anaconda</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../10_intro/50_Python_Tutorial.html">Python Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_intro/60_CSV.html">Open a CSV File in a Test Editor</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../10_intro/70_Assignment1.html">Assignment 1</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="09_Module2.html">Module 2 Data Wrangling</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="10_Introduction.html">Introduction to Data Wrangling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20_Pandas.html">PANDAS</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Pandas Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="35_Discussion.html">Discussion 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="40_GroupBy.html">Groups and Aggregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="45_Groupby.html">Groupby Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="50_Assignment2.html">Assignment 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="55_MarathonShoes.html">Assigment 2 Starting Poin</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/True-North-Intelligent-Algorithms/intro-to-data-analysis" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/True-North-Intelligent-Algorithms/intro-to-data-analysis/issues/new?title=Issue%20on%20page%20%2F20_data_wrangling/25_Pandas.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/20_data_wrangling/25_Pandas.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pandas Tutorial</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pandas-tutorial">
+<h1>Pandas Tutorial<a class="headerlink" href="#pandas-tutorial" title="Permalink to this heading">#</a></h1>
+<p>Import Pandas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Read .csv file, using pandas, look at the type of ‘df’ (it should be a dataframe) and print the first few rows of the dataframe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;MLBTeams2014.csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+
+    Tm   W   L  BatAge  PAge    R     H   2B  3B   HR  ...  SO_a  HBP_a  BK  \
+0  BAL  96  66    28.3  27.7  705  1434  264  16  211  ...  1174     59   2   
+1  BOS  71  91    29.2  29.9  634  1355  282  20  123  ...  1213     47   5   
+2  CHW  73  89    27.7  27.4  660  1400  279  32  155  ...  1152     69   3   
+3  CLE  85  77    28.5  27.2  669  1411  284  23  142  ...  1450     58   2   
+4  DET  90  72    29.8  28.5  757  1557  325  26  155  ...  1244     42   9   
+
+   WP    BF  ERA+  BB9  SO9  SO/W  LOB.1  
+0  42  6104   112  2.9  7.2  2.49   1127  
+1  51  6231    97  3.0  7.4  2.52   1119  
+2  75  6255    90  3.5  7.2  2.07   1174  
+3  56  6193   104  2.8  8.9  3.13   1135  
+4  43  6191   100  2.9  7.7  2.69   1124  
+
+[5 rows x 49 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Print the shape, columns and row indexes of this dataset</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;size: &quot;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;columns: &quot;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;index: &quot;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>size:  (16, 49)
+
+columns:  Index([&#39;Tm&#39;, &#39;W&#39;, &#39;L&#39;, &#39;BatAge&#39;, &#39;PAge&#39;, &#39;R&#39;, &#39;H&#39;, &#39;2B&#39;, &#39;3B&#39;, &#39;HR&#39;, &#39;RBI&#39;,
+       &#39;SB&#39;, &#39;CS&#39;, &#39;BB&#39;, &#39;SO&#39;, &#39;BA&#39;, &#39;OBP&#39;, &#39;SLG&#39;, &#39;OPS&#39;, &#39;OPS+&#39;, &#39;TB&#39;, &#39;GDP&#39;,
+       &#39;HBP&#39;, &#39;SH&#39;, &#39;SF&#39;, &#39;IBB&#39;, &#39;LOB&#39;, &#39;RA/G&#39;, &#39;W.1&#39;, &#39;L.1&#39;, &#39;ERA&#39;, &#39;SV&#39;,
+       &#39;IP&#39;, &#39;H_a&#39;, &#39;R_a&#39;, &#39;ER_a&#39;, &#39;HR_a&#39;, &#39;BB_a&#39;, &#39;IBB_a&#39;, &#39;SO_a&#39;, &#39;HBP_a&#39;,
+       &#39;BK&#39;, &#39;WP&#39;, &#39;BF&#39;, &#39;ERA+&#39;, &#39;BB9&#39;, &#39;SO9&#39;, &#39;SO/W&#39;, &#39;LOB.1&#39;],
+      dtype=&#39;object&#39;)
+
+index:  RangeIndex(start=0, stop=16, step=1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Get a column of data by name</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wins</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;W&quot;</span><span class="p">]</span>
+<span class="nb">print</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">wins</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wins</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wins</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.series.Series&#39;&gt;
+
+(16,)
+
+0    96
+1    71
+2    73
+3    85
+4    90
+Name: W, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>‘wins’ should be of type ‘Series’.  Series has many useful functions</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;mean is: &quot;</span><span class="p">,</span><span class="n">wins</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">wins</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean is:  81.875
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7efd197ce470&gt;
+</pre></div>
+</div>
+<img alt="../_images/3164163d10f0102c158ed33e3e0833374710798665bde1d05473971cbc752fc6.png" src="../_images/3164163d10f0102c158ed33e3e0833374710798665bde1d05473971cbc752fc6.png" />
+</div>
+</div>
+<p>Open a time series</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dataset from Python for Data Analysis by Wes Mckinney</span>
+<span class="n">apple</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;apple.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Inspect the data, note the index is a date</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;head&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">apple</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;tail&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">apple</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;shape&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">apple</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;column headers&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">apple</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>head
+              Open   High     Low  Close      Volume
+Date                                                
+2015-02-23  130.02  133.0  129.66  133.0  67871830.0
+2015-02-20  128.62  129.5  128.05  129.5  48948419.0
+
+tail
+            Open  High   Low  Close      Volume
+Date                                           
+1980-12-15   0.0  3.91  3.89   3.89   5496400.0
+1980-12-12   0.0  4.12  4.11   4.11  14657300.0
+
+shape
+(8640, 5)
+
+column headers
+Index([&#39;Open&#39;, &#39;High&#39;, &#39;Low&#39;, &#39;Close&#39;, &#39;Volume&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>get a range of dates</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">apple</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2012-12-14&#39;</span><span class="p">:</span><span class="s1">&#39;2012-12-10&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Open</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Close</th>
+      <th>Volume</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2012-12-14</th>
+      <td>73.54</td>
+      <td>74.02</td>
+      <td>72.23</td>
+      <td>72.83</td>
+      <td>252394499.0</td>
+    </tr>
+    <tr>
+      <th>2012-12-13</th>
+      <td>75.88</td>
+      <td>76.81</td>
+      <td>75.11</td>
+      <td>75.67</td>
+      <td>156314627.0</td>
+    </tr>
+    <tr>
+      <th>2012-12-12</th>
+      <td>78.25</td>
+      <td>78.29</td>
+      <td>76.61</td>
+      <td>77.00</td>
+      <td>121783130.0</td>
+    </tr>
+    <tr>
+      <th>2012-12-11</th>
+      <td>77.11</td>
+      <td>78.51</td>
+      <td>76.77</td>
+      <td>77.34</td>
+      <td>148085903.0</td>
+    </tr>
+    <tr>
+      <th>2012-12-10</th>
+      <td>75.00</td>
+      <td>76.93</td>
+      <td>74.51</td>
+      <td>75.69</td>
+      <td>157620575.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Can also get row by integer index</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">apple</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">8000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Open            0.00
+High            7.88
+Low             7.66
+Close           7.66
+Volume    4187400.00
+Name: 1983-06-23 00:00:00, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Print statistics</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;min is:&quot;</span><span class="p">,</span><span class="n">apple</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;max is:&quot;</span><span class="p">,</span><span class="n">apple</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;standard deviation is:&quot;</span><span class="p">,</span><span class="n">apple</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>min is: 0.94
+max is: 133.0
+standard deviation is: 24.192695823499783
+</pre></div>
+</div>
+</div>
+</div>
+<p>Slice a dataframe by a condition</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">over_100</span><span class="o">=</span><span class="n">apple</span><span class="p">[</span><span class="n">apple</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">100</span><span class="p">]</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">over_100</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">apple</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">][</span><span class="n">apple</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">100</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(115, 5)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>115
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./20_data_wrangling"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="20_Pandas.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">PANDAS</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="35_Discussion.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Discussion 2</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+Copyright: This work can be reused under the terms of the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC-BY 4.0</a> license unless mentioned otherwise.
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

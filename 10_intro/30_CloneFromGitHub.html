@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '10_intro/30_CloneFromGitHub';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Python Tutorial" href="50_Python_Tutorial.html" />
+    <link rel="next" title="Python via Anaconda" href="40_Python.html" />
     <link rel="prev" title="What is Data Analysis?" href="20_WhatIsDataAnalysis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -156,17 +156,30 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Module1</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Intro to Data Analysis</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="10_Module1.html">Module 1</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="20_WhatIsDataAnalysis.html">What is Data Analysis?</a></li>
 
 
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Clone from GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="40_Python.html">Python via Anaconda</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="50_Python_Tutorial.html">Python Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="60_CSV.html">Open a CSV File in a Test Editor</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="70_Assignment1.html">Assignment 1</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../20_data_wrangling/09_Module2.html">Module 2 Data Wrangling</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../20_data_wrangling/10_Introduction.html">Introduction to Data Wrangling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../20_data_wrangling/20_Pandas.html">PANDAS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../20_data_wrangling/25_Pandas.html">Pandas Tutorial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../20_data_wrangling/35_Discussion.html">Discussion 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../20_data_wrangling/40_GroupBy.html">Groups and Aggregation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../20_data_wrangling/45_Groupby.html">Groupby Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../20_data_wrangling/50_Assignment2.html">Assignment 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../20_data_wrangling/55_MarathonShoes.html">Assigment 2 Starting Poin</a></li>
 </ul>
 </li>
 </ul>
@@ -377,33 +390,29 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="nav-links"> 
-<a href=" {{ site.baseurl }}/docs/courses/intro-to-data-analysis/module1/Discussion" class="prev-link">&larr; Previous Page</a> 
-<a href=" {{ site.baseurl }}/docs/courses/intro-to-data-analysis/module1/Python" class="next-link">Next Page &rarr;</a> 
-</div>
-<section id="clone-from-github">
+  <section id="clone-from-github">
 <h1>Clone from GitHub<a class="headerlink" href="#clone-from-github" title="Permalink to this heading">#</a></h1>
 <p>First (if you don’t already) create an account on <a class="reference external" href="https://github.com/">GitHub</a> and install <a class="reference external" href="https://desktop.github.com/">GitHub desktop</a>. (If you are comfortable with the command line, you can interact with git from there… though many students prefer the desk top application)</p>
 <p>Once you have GitHub desktop running</p>
 <section id="go-to-options">
 <h2>Go to Options<a class="headerlink" href="#go-to-options" title="Permalink to this heading">#</a></h2>
-<img src="githubdesktop1.jpg" width="700">  
+<p><img alt="Can't find image" src="../_images/githubdesktop1.jpg" /></p>
 </section>
 <section id="sign-into-your-github-account">
 <h2>Sign into your Github account<a class="headerlink" href="#sign-into-your-github-account" title="Permalink to this heading">#</a></h2>
-<img src="githubdesktop2.jpg" width="700">  
-<img src="githubdesktop3.jpg" width="700">  
+<p><img alt="Can't find image" src="../_images/githubdesktop2.jpg" />
+<img alt="Can't find image" src="../_images/githubdesktop3.jpg" /></p>
 </section>
 <section id="go-to-clone-a-repository">
 <h2>Go to ‘Clone a repository’<a class="headerlink" href="#go-to-clone-a-repository" title="Permalink to this heading">#</a></h2>
-<img src="githubdesktop4a.jpg" width="700">
+<p><img alt="Can't find image" src="../_images/githubdesktop4a.jpg" /></p>
 </section>
 <section id="choose-the-url-tab-and-enter">
 <h2>Choose the ‘URL’ tab and enter<a class="headerlink" href="#choose-the-url-tab-and-enter" title="Permalink to this heading">#</a></h2>
 <p>Repository URL: bnorthan/inf-428-data-analytics-online</p>
 <p>Local Path: <strong>The path where you want to put the repository</strong></p>
 <p>Note: Make sure ‘Local Path’ is in your user directory (in my case it is C:\Users\bnort\INF428’) so you can find the files from Python notebook.</p>
-<img src="githubdesktop4.jpg" width="700">  
+<p><img alt="Can't find image" src="../_images/githubdesktop4.jpg" /></p>
 </section>
 </section>
 
@@ -448,11 +457,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="50_Python_Tutorial.html"
+       href="40_Python.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Python Tutorial</p>
+        <p class="prev-next-title">Python via Anaconda</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
