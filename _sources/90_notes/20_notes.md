@@ -22,4 +22,4 @@ https://true-north-intelligent-algorithms.github.io/intro-to-data-analysis/intro
 
 7.  Start working on section 2 homework.
 
-8s.  Optional.  Try playing with API to access baseball savant data (maybe make this a mid month exercise)
+8.  (Optional time permitting)  Try playing with API to access baseball savant data (maybe make this a mid month exercise)
