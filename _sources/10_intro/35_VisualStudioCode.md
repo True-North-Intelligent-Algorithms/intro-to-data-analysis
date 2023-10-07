@@ -14,6 +14,9 @@ It features
 ![image 1](vscode1.jpg)  
 
 ## Visual Studio Code source control (Git and GitHub) integration
+
+Show example of checking code into git live
+
 ![image 2](vscode2.jpg)  
 
 ## Visual Studio Code extensions 
