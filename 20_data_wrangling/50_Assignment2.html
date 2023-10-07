@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '20_data_wrangling/50_Assignment2';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Assigment 2 Starting Poin" href="55_MarathonShoes.html" />
+    <link rel="next" title="Assigment 2 Starting Point" href="55_MarathonShoes.html" />
     <link rel="prev" title="Groupby Example" href="45_Groupby.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -152,17 +152,18 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    <no title>
+                    Intro  to data analysis with the Python Ecosystem
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Intro to Data Analysis</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../10_intro/10_Module1.html">Module 1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10_intro/10_Module1.html">Module 1 Introduction to Python and Tools</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../10_intro/20_WhatIsDataAnalysis.html">What is Data Analysis?</a></li>
 
 
 <li class="toctree-l2"><a class="reference internal" href="../10_intro/30_CloneFromGitHub.html">Clone from GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_intro/35_VisualStudioCode.html">Visual Studio Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../10_intro/40_Python.html">Python via Anaconda</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../10_intro/50_Python_Tutorial.html">Python Tutorial</a></li>
@@ -179,9 +180,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="40_GroupBy.html">Groups and Aggregation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="45_Groupby.html">Groupby Example</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Assignment 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="55_MarathonShoes.html">Assigment 2 Starting Poin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="55_MarathonShoes.html">Assigment 2 Starting Point</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../90_notes/20_notes.html">October 7th Plan</a></li>
 </ul>
 
     </div>
@@ -389,11 +391,7 @@ Learn to plot data from groups</p>
 <p>Two years ago NIKE introduced a new shoe called the 4%, that was advertised as improving running times by 4%.  Very quickly almost all elite athletes began using the new shoe.  In this assignment you will look at data from 2013 and 2015 (before the new shoe waas introduced) and 2018 and 2019 (at which point the majority of athletes were using the new shoe).</p>
 <p>You will group this data in an attempt to identify how running times changed for elite athletes after the introduction of the new shoe.</p>
 <p>You will need the following datasets, men2013.txt, men2015.txt, men2018.txt, mean2019.txt, women2013.txt, women2015.txt, women2018.txt, and women2019.txt.</p>
-<p>The datasets can be found on github here</p>
-<p><a class="github reference external" href="https://github.com/bnorthan/inf-428-data-analytics-online/blob/master/python/notebooks/data_wrangling/">bnorthan/inf-428-data-analytics-online</a></p>
-<p>You will use the following notebook as a reference</p>
-<p><a class="github reference external" href="https://github.com/bnorthan/inf-428-data-analytics-online/blob/master/python/notebooks/data_wrangling/MarathonShoes.ipynb">bnorthan/inf-428-data-analytics-online</a></p>
-<p>Answer the following questions in a word document and submit on BlackBoard</p>
+<p>The datasets can be found in the class repository under the 20_data_wrangling section.</p>
 <ol class="arabic simple">
 <li><p>In the example we use <code class="docutils literal notranslate"><span class="pre">pd.read_fwf</span></code> to open data.  What is the <code class="docutils literal notranslate"><span class="pre">pd.read_fwf</span></code> function??  Why do we use it in this case instead of <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code>??</p></li>
 <li><p>Why do we pass an extra parameter called <code class="docutils literal notranslate"><span class="pre">name</span></code> (hint for help on the <code class="docutils literal notranslate"><span class="pre">pd.read_fwf</span></code> function call <code class="docutils literal notranslate"><span class="pre">help(pd.read_fwf</span></code>, it should list all the optional parameters)</p></li>
@@ -414,15 +412,11 @@ Learn to plot data from groups</p>
 </pre></div>
 </div>
 <ol class="arabic simple" start="8">
-<li><p>Output the <code class="docutils literal notranslate"><span class="pre">final</span></code> dataframe to a csv file and import it into KNIME (take a screen shot)</p></li>
-<li><p>Rerun the groupby operation in KNIME, but groupby country and aggregate the mean of time in seconds (take a screen shot).</p></li>
-<li><p>In Python make a barplot showing the average time of each of the 8 groups of runners. (It is one line of code once you have the groups).</p></li>
-<li><p>In KNIME make a barplot showing the average time of runners from each country (hint use the KNIME Javascript barplot and follow this <a class="reference external" href="https://bnorthan.github.io/inf-428-data-analytics-online/Module4/KNIMEJavaScript">example</a>, make sure you use ‘country’ for the ‘Category Column’ )</p></li>
-</ol>
-<p>(Submit a screen shot)</p>
-<p>BONUS</p>
-<ol class="arabic simple" start="12">
-<li><p>Repeat block 1 of the Python notebook (where we open and concatenate data, in KNIME).  You will have to figure out how to add column headers in KNIME, how to open (or select) only the first 100 rows, and how to concatenate data.  At the end of the process you should have a larger file which combines all years and genders of the data.  Take a screen shot of the work flow and final table, and insert into the word document.</p></li>
+<li><p>Make a bar plot showing the average time of the top 20 runners before (2013 and 2015 and after 2018 and 2019)
+the new shoe was introduced.</p></li>
+<li><p>Make bar plots showing the average time of runners from each country.  What other bar plots would be interesting to see?</p></li>
+<li><p>What is a cofounder ?  Can we conclude for sure the new shoes made runners faster?  How confident can we be in our result?  Answer in words and think about what math we’d need to use to answer these questions more formally (in one of the next sections we will explore hypothesis testing and statistics more formally)</p></li>
+<li><p>Submit homework via your github account.  Create a new folder ‘homework’ and add new notebooks and markdown files with the answers, then add (stage), commit, and push your work to your personal branch of the class repository.</p></li>
 </ol>
 </section>
 
@@ -471,7 +465,7 @@ Learn to plot data from groups</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Assigment 2 Starting Poin</p>
+        <p class="prev-next-title">Assigment 2 Starting Point</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

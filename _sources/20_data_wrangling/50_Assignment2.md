@@ -17,15 +17,7 @@ You will group this data in an attempt to identify how running times changed for
 
 You will need the following datasets, men2013.txt, men2015.txt, men2018.txt, mean2019.txt, women2013.txt, women2015.txt, women2018.txt, and women2019.txt.  
 
-The datasets can be found on github here  
-
-https://github.com/bnorthan/inf-428-data-analytics-online/blob/master/python/notebooks/data_wrangling/
-
-You will use the following notebook as a reference  
-
-https://github.com/bnorthan/inf-428-data-analytics-online/blob/master/python/notebooks/data_wrangling/MarathonShoes.ipynb  
-
-Answer the following questions in a word document and submit on BlackBoard  
+The datasets can be found in the class repository under the 20_data_wrangling section.   
 
 1.  In the example we use ```pd.read_fwf``` to open data.  What is the ```pd.read_fwf``` function??  Why do we use it in this case instead of ```pd.read_csv```??  
 2.  Why do we pass an extra parameter called ```name``` (hint for help on the ```pd.read_fwf``` function call ```help(pd.read_fwf```, it should list all the optional parameters)  
@@ -42,14 +34,8 @@ def timeToSeconds(time):
 ``` python
 final['seconds']=final['time'].apply(lambda x: timeToSeconds(x))
 ```
-8.  Output the ```final``` dataframe to a csv file and import it into KNIME (take a screen shot)  
-9.  Rerun the groupby operation in KNIME, but groupby country and aggregate the mean of time in seconds (take a screen shot).  
-10.  In Python make a barplot showing the average time of each of the 8 groups of runners. (It is one line of code once you have the groups).
-11.  In KNIME make a barplot showing the average time of runners from each country (hint use the KNIME Javascript barplot and follow this [example](https://bnorthan.github.io/inf-428-data-analytics-online/Module4/KNIMEJavaScript), make sure you use 'country' for the 'Category Column' )
-
-
-(Submit a screen shot) 
-
-BONUS
-
-12.  Repeat block 1 of the Python notebook (where we open and concatenate data, in KNIME).  You will have to figure out how to add column headers in KNIME, how to open (or select) only the first 100 rows, and how to concatenate data.  At the end of the process you should have a larger file which combines all years and genders of the data.  Take a screen shot of the work flow and final table, and insert into the word document.  
+8.  Make a bar plot showing the average time of the top 20 runners before (2013 and 2015 and after 2018 and 2019) 
+the new shoe was introduced.
+9.  Make bar plots showing the average time of runners from each country.  What other bar plots would be interesting to see?
+10.  What is a cofounder ?  Can we conclude for sure the new shoes made runners faster?  How confident can we be in our result?  Answer in words and think about what math we'd need to use to answer these questions more formally (in one of the next sections we will explore hypothesis testing and statistics more formally)
+11.  Submit homework via your github account.  Create a new folder 'homework' and add new notebooks and markdown files with the answers, then add (stage), commit, and push your work to your personal branch of the class repository. 

@@ -152,17 +152,18 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    <no title>
+                    Intro  to data analysis with the Python Ecosystem
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Intro to Data Analysis</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../10_intro/10_Module1.html">Module 1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10_intro/10_Module1.html">Module 1 Introduction to Python and Tools</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../10_intro/20_WhatIsDataAnalysis.html">What is Data Analysis?</a></li>
 
 
 <li class="toctree-l2"><a class="reference internal" href="../10_intro/30_CloneFromGitHub.html">Clone from GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_intro/35_VisualStudioCode.html">Visual Studio Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../10_intro/40_Python.html">Python via Anaconda</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../10_intro/50_Python_Tutorial.html">Python Tutorial</a></li>
@@ -179,9 +180,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="40_GroupBy.html">Groups and Aggregation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="45_Groupby.html">Groupby Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="50_Assignment2.html">Assignment 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="55_MarathonShoes.html">Assigment 2 Starting Poin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="55_MarathonShoes.html">Assigment 2 Starting Point</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../90_notes/20_notes.html">October 7th Plan</a></li>
 </ul>
 
     </div>
@@ -393,31 +395,618 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;MLBTeams2014.csv&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">()</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-    Tm   W   L  BatAge  PAge    R     H   2B  3B   HR  ...  SO_a  HBP_a  BK  \
-0  BAL  96  66    28.3  27.7  705  1434  264  16  211  ...  1174     59   2   
-1  BOS  71  91    29.2  29.9  634  1355  282  20  123  ...  1213     47   5   
-2  CHW  73  89    27.7  27.4  660  1400  279  32  155  ...  1152     69   3   
-3  CLE  85  77    28.5  27.2  669  1411  284  23  142  ...  1450     58   2   
-4  DET  90  72    29.8  28.5  757  1557  325  26  155  ...  1244     42   9   
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-   WP    BF  ERA+  BB9  SO9  SO/W  LOB.1  
-0  42  6104   112  2.9  7.2  2.49   1127  
-1  51  6231    97  3.0  7.4  2.52   1119  
-2  75  6255    90  3.5  7.2  2.07   1174  
-3  56  6193   104  2.8  8.9  3.13   1135  
-4  43  6191   100  2.9  7.7  2.69   1124  
-
-[5 rows x 49 columns]
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Tm</th>
+      <th>W</th>
+      <th>L</th>
+      <th>BatAge</th>
+      <th>PAge</th>
+      <th>R</th>
+      <th>H</th>
+      <th>2B</th>
+      <th>3B</th>
+      <th>HR</th>
+      <th>...</th>
+      <th>SO_a</th>
+      <th>HBP_a</th>
+      <th>BK</th>
+      <th>WP</th>
+      <th>BF</th>
+      <th>ERA+</th>
+      <th>BB9</th>
+      <th>SO9</th>
+      <th>SO/W</th>
+      <th>LOB.1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>BAL</td>
+      <td>96</td>
+      <td>66</td>
+      <td>28.3</td>
+      <td>27.7</td>
+      <td>705</td>
+      <td>1434</td>
+      <td>264</td>
+      <td>16</td>
+      <td>211</td>
+      <td>...</td>
+      <td>1174</td>
+      <td>59</td>
+      <td>2</td>
+      <td>42</td>
+      <td>6104</td>
+      <td>112</td>
+      <td>2.9</td>
+      <td>7.2</td>
+      <td>2.49</td>
+      <td>1127</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>BOS</td>
+      <td>71</td>
+      <td>91</td>
+      <td>29.2</td>
+      <td>29.9</td>
+      <td>634</td>
+      <td>1355</td>
+      <td>282</td>
+      <td>20</td>
+      <td>123</td>
+      <td>...</td>
+      <td>1213</td>
+      <td>47</td>
+      <td>5</td>
+      <td>51</td>
+      <td>6231</td>
+      <td>97</td>
+      <td>3.0</td>
+      <td>7.4</td>
+      <td>2.52</td>
+      <td>1119</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>CHW</td>
+      <td>73</td>
+      <td>89</td>
+      <td>27.7</td>
+      <td>27.4</td>
+      <td>660</td>
+      <td>1400</td>
+      <td>279</td>
+      <td>32</td>
+      <td>155</td>
+      <td>...</td>
+      <td>1152</td>
+      <td>69</td>
+      <td>3</td>
+      <td>75</td>
+      <td>6255</td>
+      <td>90</td>
+      <td>3.5</td>
+      <td>7.2</td>
+      <td>2.07</td>
+      <td>1174</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>CLE</td>
+      <td>85</td>
+      <td>77</td>
+      <td>28.5</td>
+      <td>27.2</td>
+      <td>669</td>
+      <td>1411</td>
+      <td>284</td>
+      <td>23</td>
+      <td>142</td>
+      <td>...</td>
+      <td>1450</td>
+      <td>58</td>
+      <td>2</td>
+      <td>56</td>
+      <td>6193</td>
+      <td>104</td>
+      <td>2.8</td>
+      <td>8.9</td>
+      <td>3.13</td>
+      <td>1135</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>DET</td>
+      <td>90</td>
+      <td>72</td>
+      <td>29.8</td>
+      <td>28.5</td>
+      <td>757</td>
+      <td>1557</td>
+      <td>325</td>
+      <td>26</td>
+      <td>155</td>
+      <td>...</td>
+      <td>1244</td>
+      <td>42</td>
+      <td>9</td>
+      <td>43</td>
+      <td>6191</td>
+      <td>100</td>
+      <td>2.9</td>
+      <td>7.7</td>
+      <td>2.69</td>
+      <td>1124</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 49 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Tm</th>
+      <th>W</th>
+      <th>L</th>
+      <th>BatAge</th>
+      <th>PAge</th>
+      <th>R</th>
+      <th>H</th>
+      <th>2B</th>
+      <th>3B</th>
+      <th>HR</th>
+      <th>...</th>
+      <th>SO_a</th>
+      <th>HBP_a</th>
+      <th>BK</th>
+      <th>WP</th>
+      <th>BF</th>
+      <th>ERA+</th>
+      <th>BB9</th>
+      <th>SO9</th>
+      <th>SO/W</th>
+      <th>LOB.1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>BAL</td>
+      <td>96</td>
+      <td>66</td>
+      <td>28.3</td>
+      <td>27.7</td>
+      <td>705</td>
+      <td>1434</td>
+      <td>264</td>
+      <td>16</td>
+      <td>211</td>
+      <td>...</td>
+      <td>1174</td>
+      <td>59</td>
+      <td>2</td>
+      <td>42</td>
+      <td>6104</td>
+      <td>112</td>
+      <td>2.9</td>
+      <td>7.2</td>
+      <td>2.49</td>
+      <td>1127</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>BOS</td>
+      <td>71</td>
+      <td>91</td>
+      <td>29.2</td>
+      <td>29.9</td>
+      <td>634</td>
+      <td>1355</td>
+      <td>282</td>
+      <td>20</td>
+      <td>123</td>
+      <td>...</td>
+      <td>1213</td>
+      <td>47</td>
+      <td>5</td>
+      <td>51</td>
+      <td>6231</td>
+      <td>97</td>
+      <td>3.0</td>
+      <td>7.4</td>
+      <td>2.52</td>
+      <td>1119</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>CHW</td>
+      <td>73</td>
+      <td>89</td>
+      <td>27.7</td>
+      <td>27.4</td>
+      <td>660</td>
+      <td>1400</td>
+      <td>279</td>
+      <td>32</td>
+      <td>155</td>
+      <td>...</td>
+      <td>1152</td>
+      <td>69</td>
+      <td>3</td>
+      <td>75</td>
+      <td>6255</td>
+      <td>90</td>
+      <td>3.5</td>
+      <td>7.2</td>
+      <td>2.07</td>
+      <td>1174</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>CLE</td>
+      <td>85</td>
+      <td>77</td>
+      <td>28.5</td>
+      <td>27.2</td>
+      <td>669</td>
+      <td>1411</td>
+      <td>284</td>
+      <td>23</td>
+      <td>142</td>
+      <td>...</td>
+      <td>1450</td>
+      <td>58</td>
+      <td>2</td>
+      <td>56</td>
+      <td>6193</td>
+      <td>104</td>
+      <td>2.8</td>
+      <td>8.9</td>
+      <td>3.13</td>
+      <td>1135</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>DET</td>
+      <td>90</td>
+      <td>72</td>
+      <td>29.8</td>
+      <td>28.5</td>
+      <td>757</td>
+      <td>1557</td>
+      <td>325</td>
+      <td>26</td>
+      <td>155</td>
+      <td>...</td>
+      <td>1244</td>
+      <td>42</td>
+      <td>9</td>
+      <td>43</td>
+      <td>6191</td>
+      <td>100</td>
+      <td>2.9</td>
+      <td>7.7</td>
+      <td>2.69</td>
+      <td>1124</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>HOU</td>
+      <td>70</td>
+      <td>92</td>
+      <td>25.7</td>
+      <td>27.9</td>
+      <td>629</td>
+      <td>1317</td>
+      <td>240</td>
+      <td>19</td>
+      <td>163</td>
+      <td>...</td>
+      <td>1137</td>
+      <td>52</td>
+      <td>7</td>
+      <td>57</td>
+      <td>6154</td>
+      <td>95</td>
+      <td>3.0</td>
+      <td>7.1</td>
+      <td>2.35</td>
+      <td>1115</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>KCR</td>
+      <td>89</td>
+      <td>73</td>
+      <td>28.2</td>
+      <td>28.9</td>
+      <td>651</td>
+      <td>1456</td>
+      <td>286</td>
+      <td>29</td>
+      <td>95</td>
+      <td>...</td>
+      <td>1168</td>
+      <td>56</td>
+      <td>6</td>
+      <td>58</td>
+      <td>6101</td>
+      <td>114</td>
+      <td>2.7</td>
+      <td>7.2</td>
+      <td>2.65</td>
+      <td>1125</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>LAA</td>
+      <td>98</td>
+      <td>64</td>
+      <td>29.3</td>
+      <td>28.4</td>
+      <td>773</td>
+      <td>1464</td>
+      <td>304</td>
+      <td>31</td>
+      <td>155</td>
+      <td>...</td>
+      <td>1342</td>
+      <td>63</td>
+      <td>4</td>
+      <td>74</td>
+      <td>6179</td>
+      <td>102</td>
+      <td>3.1</td>
+      <td>8.1</td>
+      <td>2.66</td>
+      <td>1101</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>MIN</td>
+      <td>70</td>
+      <td>92</td>
+      <td>27.6</td>
+      <td>29.2</td>
+      <td>715</td>
+      <td>1412</td>
+      <td>316</td>
+      <td>27</td>
+      <td>128</td>
+      <td>...</td>
+      <td>1031</td>
+      <td>45</td>
+      <td>6</td>
+      <td>50</td>
+      <td>6212</td>
+      <td>86</td>
+      <td>2.6</td>
+      <td>6.5</td>
+      <td>2.53</td>
+      <td>1130</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>NYY</td>
+      <td>84</td>
+      <td>78</td>
+      <td>32.6</td>
+      <td>29.3</td>
+      <td>633</td>
+      <td>1349</td>
+      <td>247</td>
+      <td>26</td>
+      <td>147</td>
+      <td>...</td>
+      <td>1370</td>
+      <td>65</td>
+      <td>6</td>
+      <td>49</td>
+      <td>6114</td>
+      <td>104</td>
+      <td>2.5</td>
+      <td>8.5</td>
+      <td>3.44</td>
+      <td>1091</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>OAK</td>
+      <td>88</td>
+      <td>74</td>
+      <td>29.5</td>
+      <td>28.2</td>
+      <td>729</td>
+      <td>1354</td>
+      <td>253</td>
+      <td>33</td>
+      <td>146</td>
+      <td>...</td>
+      <td>1244</td>
+      <td>48</td>
+      <td>1</td>
+      <td>59</td>
+      <td>5971</td>
+      <td>116</td>
+      <td>2.5</td>
+      <td>7.7</td>
+      <td>3.06</td>
+      <td>1010</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>SEA</td>
+      <td>87</td>
+      <td>75</td>
+      <td>27.6</td>
+      <td>29.0</td>
+      <td>634</td>
+      <td>1328</td>
+      <td>247</td>
+      <td>32</td>
+      <td>136</td>
+      <td>...</td>
+      <td>1317</td>
+      <td>52</td>
+      <td>8</td>
+      <td>80</td>
+      <td>5974</td>
+      <td>115</td>
+      <td>2.9</td>
+      <td>8.2</td>
+      <td>2.84</td>
+      <td>1064</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>TBR</td>
+      <td>77</td>
+      <td>85</td>
+      <td>29.3</td>
+      <td>28.4</td>
+      <td>612</td>
+      <td>1361</td>
+      <td>263</td>
+      <td>24</td>
+      <td>117</td>
+      <td>...</td>
+      <td>1437</td>
+      <td>58</td>
+      <td>3</td>
+      <td>65</td>
+      <td>6131</td>
+      <td>105</td>
+      <td>3.0</td>
+      <td>8.8</td>
+      <td>2.98</td>
+      <td>1115</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>TEX</td>
+      <td>67</td>
+      <td>95</td>
+      <td>28.4</td>
+      <td>27.9</td>
+      <td>637</td>
+      <td>1400</td>
+      <td>260</td>
+      <td>28</td>
+      <td>111</td>
+      <td>...</td>
+      <td>1110</td>
+      <td>61</td>
+      <td>7</td>
+      <td>61</td>
+      <td>6195</td>
+      <td>87</td>
+      <td>3.2</td>
+      <td>7.0</td>
+      <td>2.20</td>
+      <td>1143</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>TOR</td>
+      <td>83</td>
+      <td>79</td>
+      <td>29.2</td>
+      <td>29.6</td>
+      <td>723</td>
+      <td>1435</td>
+      <td>282</td>
+      <td>24</td>
+      <td>177</td>
+      <td>...</td>
+      <td>1199</td>
+      <td>57</td>
+      <td>5</td>
+      <td>43</td>
+      <td>6150</td>
+      <td>98</td>
+      <td>3.1</td>
+      <td>7.5</td>
+      <td>2.45</td>
+      <td>1135</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>LgAvg</td>
+      <td>82</td>
+      <td>80</td>
+      <td>28.7</td>
+      <td>28.5</td>
+      <td>677</td>
+      <td>1402</td>
+      <td>275</td>
+      <td>26</td>
+      <td>144</td>
+      <td>...</td>
+      <td>1239</td>
+      <td>55</td>
+      <td>5</td>
+      <td>58</td>
+      <td>6144</td>
+      <td>101</td>
+      <td>2.9</td>
+      <td>7.7</td>
+      <td>2.65</td>
+      <td>1114</td>
+    </tr>
+  </tbody>
+</table>
+<p>16 rows × 49 columns</p>
+</div></div></div>
 </div>
 <p>Print the shape, columns and row indexes of this dataset</p>
 <div class="cell docutils container">
@@ -485,10 +1074,10 @@ Name: W, dtype: int64
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>mean is:  81.875
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7efd197ce470&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="../_images/3164163d10f0102c158ed33e3e0833374710798665bde1d05473971cbc752fc6.png" src="../_images/3164163d10f0102c158ed33e3e0833374710798665bde1d05473971cbc752fc6.png" />
+<img alt="../_images/831558e8b4ea5f8ed41a40c3b37889aa219271b5cf389101cb50c6de04d4fccd.png" src="../_images/831558e8b4ea5f8ed41a40c3b37889aa219271b5cf389101cb50c6de04d4fccd.png" />
 </div>
 </div>
 <p>Open a time series</p>
@@ -542,7 +1131,7 @@ Index([&#39;Open&#39;, &#39;High&#39;, &#39;Low&#39;, &#39;Close&#39;, &#39;Volu
 <p>get a range of dates</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">apple</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2012-12-14&#39;</span><span class="p">:</span><span class="s1">&#39;2012-12-10&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">apple</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2012-12-4&#39;</span><span class="p">:</span><span class="s1">&#39;2012-12-10&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -582,44 +1171,44 @@ Index([&#39;Open&#39;, &#39;High&#39;, &#39;Low&#39;, &#39;Close&#39;, &#39;Volu
   </thead>
   <tbody>
     <tr>
-      <th>2012-12-14</th>
-      <td>73.54</td>
-      <td>74.02</td>
-      <td>72.23</td>
-      <td>72.83</td>
-      <td>252394499.0</td>
-    </tr>
-    <tr>
-      <th>2012-12-13</th>
-      <td>75.88</td>
-      <td>76.81</td>
-      <td>75.11</td>
-      <td>75.67</td>
-      <td>156314627.0</td>
-    </tr>
-    <tr>
-      <th>2012-12-12</th>
-      <td>78.25</td>
-      <td>78.29</td>
-      <td>76.61</td>
-      <td>77.00</td>
-      <td>121783130.0</td>
-    </tr>
-    <tr>
-      <th>2012-12-11</th>
-      <td>77.11</td>
-      <td>78.51</td>
-      <td>76.77</td>
-      <td>77.34</td>
-      <td>148085903.0</td>
-    </tr>
-    <tr>
       <th>2012-12-10</th>
       <td>75.00</td>
       <td>76.93</td>
       <td>74.51</td>
       <td>75.69</td>
       <td>157620575.0</td>
+    </tr>
+    <tr>
+      <th>2012-12-07</th>
+      <td>79.06</td>
+      <td>79.31</td>
+      <td>75.71</td>
+      <td>76.18</td>
+      <td>196941794.0</td>
+    </tr>
+    <tr>
+      <th>2012-12-06</th>
+      <td>75.56</td>
+      <td>79.04</td>
+      <td>74.09</td>
+      <td>78.18</td>
+      <td>294301791.0</td>
+    </tr>
+    <tr>
+      <th>2012-12-05</th>
+      <td>81.27</td>
+      <td>81.32</td>
+      <td>76.97</td>
+      <td>76.97</td>
+      <td>261159353.0</td>
+    </tr>
+    <tr>
+      <th>2012-12-04</th>
+      <td>83.11</td>
+      <td>83.11</td>
+      <td>81.73</td>
+      <td>82.26</td>
+      <td>139482392.0</td>
     </tr>
   </tbody>
 </table>
@@ -655,7 +1244,7 @@ Name: 1983-06-23 00:00:00, dtype: float64
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>min is: 0.94
 max is: 133.0
-standard deviation is: 24.192695823499783
+standard deviation is: 24.192695823499612
 </pre></div>
 </div>
 </div>
@@ -677,6 +1266,75 @@ standard deviation is: 24.192695823499783
 </pre></div>
 </div>
 </div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">apple</span><span class="p">[</span><span class="n">apple</span><span class="o">.</span><span class="n">Close</span><span class="o">==</span><span class="n">apple</span><span class="o">.</span><span class="n">Close</span><span class="o">.</span><span class="n">min</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Open</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Close</th>
+      <th>Volume</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2003-04-21</th>
+      <td>0.94</td>
+      <td>0.94</td>
+      <td>0.93</td>
+      <td>0.94</td>
+      <td>38279052.0</td>
+    </tr>
+    <tr>
+      <th>2003-04-17</th>
+      <td>0.94</td>
+      <td>0.95</td>
+      <td>0.91</td>
+      <td>0.94</td>
+      <td>154382186.0</td>
+    </tr>
+    <tr>
+      <th>2003-04-11</th>
+      <td>1.00</td>
+      <td>1.03</td>
+      <td>0.92</td>
+      <td>0.94</td>
+      <td>348620426.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 

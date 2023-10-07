@@ -152,17 +152,18 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    <no title>
+                    Intro  to data analysis with the Python Ecosystem
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Intro to Data Analysis</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../10_intro/10_Module1.html">Module 1</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../10_intro/10_Module1.html">Module 1 Introduction to Python and Tools</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../10_intro/20_WhatIsDataAnalysis.html">What is Data Analysis?</a></li>
 
 
 <li class="toctree-l2"><a class="reference internal" href="../10_intro/30_CloneFromGitHub.html">Clone from GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_intro/35_VisualStudioCode.html">Visual Studio Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../10_intro/40_Python.html">Python via Anaconda</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../10_intro/50_Python_Tutorial.html">Python Tutorial</a></li>
@@ -179,9 +180,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="40_GroupBy.html">Groups and Aggregation</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Groupby Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="50_Assignment2.html">Assignment 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="55_MarathonShoes.html">Assigment 2 Starting Poin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="55_MarathonShoes.html">Assigment 2 Starting Point</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../90_notes/20_notes.html">October 7th Plan</a></li>
 </ul>
 
     </div>
@@ -550,7 +552,92 @@ document.write(`
 <p>Groupby returns a ‘DataFrameGroupBy’ object.  Before using the groups we need ‘aggregate’ the groups by a method such as ‘count’ or ‘mean’. Below we group by mean.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">by_year</span><span class="o">=</span><span class="n">year_group</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">year_group</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method mean in module pandas.core.groupby.groupby:
+
+mean(numeric_only: &#39;bool&#39; = False, engine: &#39;str&#39; = &#39;cython&#39;, engine_kwargs: &#39;dict[str, bool] | None&#39; = None) method of pandas.core.groupby.generic.DataFrameGroupBy instance
+    Compute mean of groups, excluding missing values.
+    
+    Parameters
+    ----------
+    numeric_only : bool, default False
+        Include only float, int, boolean columns.
+    
+        .. versionchanged:: 2.0.0
+    
+            numeric_only no longer accepts ``None`` and defaults to ``False``.
+    
+    engine : str, default None
+        * ``&#39;cython&#39;`` : Runs the operation through C-extensions from cython.
+        * ``&#39;numba&#39;`` : Runs the operation through JIT compiled code from numba.
+        * ``None`` : Defaults to ``&#39;cython&#39;`` or globally setting
+          ``compute.use_numba``
+    
+        .. versionadded:: 1.4.0
+    
+    engine_kwargs : dict, default None
+        * For ``&#39;cython&#39;`` engine, there are no accepted ``engine_kwargs``
+        * For ``&#39;numba&#39;`` engine, the engine can accept ``nopython``, ``nogil``
+          and ``parallel`` dictionary keys. The values must either be ``True`` or
+          ``False``. The default ``engine_kwargs`` for the ``&#39;numba&#39;`` engine is
+          ``{{&#39;nopython&#39;: True, &#39;nogil&#39;: False, &#39;parallel&#39;: False}}``
+    
+        .. versionadded:: 1.4.0
+    
+    Returns
+    -------
+    pandas.Series or pandas.DataFrame
+    
+    See Also
+    --------
+    Series.groupby : Apply a function groupby to a Series.
+    DataFrame.groupby : Apply a function groupby
+        to each row or column of a DataFrame.
+    
+    Examples
+    --------
+    &gt;&gt;&gt; df = pd.DataFrame({&#39;A&#39;: [1, 1, 2, 1, 2],
+    ...                    &#39;B&#39;: [np.nan, 2, 3, 4, 5],
+    ...                    &#39;C&#39;: [1, 2, 1, 1, 2]}, columns=[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;])
+    
+    Groupby one column and return the mean of the remaining columns in
+    each group.
+    
+    &gt;&gt;&gt; df.groupby(&#39;A&#39;).mean()
+         B         C
+    A
+    1  3.0  1.333333
+    2  4.0  1.500000
+    
+    Groupby two columns and return the mean of the remaining column.
+    
+    &gt;&gt;&gt; df.groupby([&#39;A&#39;, &#39;B&#39;]).mean()
+             C
+    A B
+    1 2.0  2.0
+      4.0  1.0
+    2 3.0  1.0
+      5.0  2.0
+    
+    Groupby one column and return the mean of only particular column in
+    the group.
+    
+    &gt;&gt;&gt; df.groupby(&#39;A&#39;)[&#39;B&#39;].mean()
+    A
+    1    3.0
+    2    4.0
+    Name: B, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">by_year</span><span class="o">=</span><span class="n">year_group</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">by_year</span><span class="p">))</span>
 <span class="nb">print</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">by_year</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
@@ -602,10 +689,10 @@ Year
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f1b9c1d9198&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Year&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/f5b7eebe3997e789bbb78f332883601400bb3490cb4648b01044ac37212e592f.png" src="../_images/f5b7eebe3997e789bbb78f332883601400bb3490cb4648b01044ac37212e592f.png" />
+<img alt="../_images/090f1821636637a9badceb29b57109278d06726f523ea3dba1bc150596fe118c.png" src="../_images/090f1821636637a9badceb29b57109278d06726f523ea3dba1bc150596fe118c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -615,10 +702,10 @@ Year
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x229617ea470&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Year&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/1a7ac89a903d8b333718e3ad6ba147edb86a047da9e7c64b07f1fd2ddc773667.png" src="../_images/1a7ac89a903d8b333718e3ad6ba147edb86a047da9e7c64b07f1fd2ddc773667.png" />
+<img alt="../_images/e649f1ce39cf74838ed777948e041d007b67daf492361f8efc2b141c926a85a0.png" src="../_images/e649f1ce39cf74838ed777948e041d007b67daf492361f8efc2b141c926a85a0.png" />
 </div>
 </div>
 </section>
