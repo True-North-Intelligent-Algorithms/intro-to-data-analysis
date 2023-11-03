@@ -13,7 +13,14 @@ pip install pybaseball
 
 2.  Work together to try and figure out why Vladimir Guerrero Jr. was not as good in 2023.  Compare his batted ball stats to his 2021 stats.  Also compare to other players like Aaron Judge.  Discuss with your team-mates what stats are available from the ```statscast.batter``` function and how you use them.
 
-3.  Create some python notebooks to show what has happened to to Vladimir.  Notebooks should be a combination of code and markdown blocks that tell a story.   
+3.  Create some python notebooks to show what has happened to to Vladimir.  Notebooks should be a combination of code and markdown blocks that tell a story.  Potentially create
+
+* histogram of batted ball distance in 2021, 2022, and 2023
+* same for Aaron Judge in 2021, 2022, and 2023
+* think of how to deal with different numbers of games played and opportunities (normalize data)
+* histograms of exit velocity, same players same years.
+
+think of other plots and data extractions to tell the story.
 
 4.  Look into the quarto library as a means to publish the slides online to then show in a big presentation to the President of Baseball operations and the CEO of Rogers Communications (owner of the Blue Jays).  See https://quarto.org/. 
 
