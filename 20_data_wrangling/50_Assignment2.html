@@ -177,13 +177,21 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="20_Pandas.html">PANDAS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="25_Pandas.html">Pandas Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="35_Discussion.html">Discussion 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="40_GroupBy.html">Groups and Aggregation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="45_Groupby.html">Groupby Example</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Assignment 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="55_MarathonShoes.html">Assigment 2 Starting Point</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../30_web_api/10_web_apis.html">Module 3 WEB APIs</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../30_web_api/12_web_apis_2015.html">WEB APIs 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../30_web_api/15_Rest_With_Python.html">Rest with Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../30_web_api/20_Web_api_2023.html">Web API 2023</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../30_web_api/25_baseball_stats.html">Example Statcast baseball data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../30_web_api/80_Assignment3.html">Assignment 3 the mystery Vladimir Guerrero Jr.</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../90_notes/20_notes.html">October 7th Plan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../90_notes/30_notes.html">Nov 4th plan</a></li>
 </ul>
 
     </div>
@@ -392,7 +400,8 @@ Learn to plot data from groups</p>
 <p>You will group this data in an attempt to identify how running times changed for elite athletes after the introduction of the new shoe.</p>
 <p>You will need the following datasets, men2013.txt, men2015.txt, men2018.txt, mean2019.txt, women2013.txt, women2015.txt, women2018.txt, and women2019.txt.</p>
 <p>The datasets can be found in the class repository under the 20_data_wrangling section.</p>
-<ol class="arabic simple">
+<ol class="arabic simple" start="0">
+<li><p>In our class we noticed that trying <code class="docutils literal notranslate"><span class="pre">apple.loc['2012-12-7':'2012-12-10']</span></code> did not work because the exact date was not present in the index.  This could be annoying if trying to get results from one approximate date to another.  is there a way to bypass this error.</p></li>
 <li><p>In the example we use <code class="docutils literal notranslate"><span class="pre">pd.read_fwf</span></code> to open data.  What is the <code class="docutils literal notranslate"><span class="pre">pd.read_fwf</span></code> function??  Why do we use it in this case instead of <code class="docutils literal notranslate"><span class="pre">pd.read_csv</span></code>??</p></li>
 <li><p>Why do we pass an extra parameter called <code class="docutils literal notranslate"><span class="pre">name</span></code> (hint for help on the <code class="docutils literal notranslate"><span class="pre">pd.read_fwf</span></code> function call <code class="docutils literal notranslate"><span class="pre">help(pd.read_fwf</span></code>, it should list all the optional parameters)</p></li>
 <li><p>Why do we call <code class="docutils literal notranslate"><span class="pre">.head(numRunnersToAnalyze()</span></code> at the end of each <code class="docutils literal notranslate"><span class="pre">read_fwf</span></code> call??  (hint try changing the parameter numRunnersToAnalyze to 10 and rerun the notebook)</p></li>

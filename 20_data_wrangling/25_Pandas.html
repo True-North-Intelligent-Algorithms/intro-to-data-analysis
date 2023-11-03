@@ -177,13 +177,21 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="20_Pandas.html">PANDAS</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Pandas Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="35_Discussion.html">Discussion 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="40_GroupBy.html">Groups and Aggregation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="45_Groupby.html">Groupby Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="50_Assignment2.html">Assignment 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="55_MarathonShoes.html">Assigment 2 Starting Point</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../30_web_api/10_web_apis.html">Module 3 WEB APIs</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../30_web_api/12_web_apis_2015.html">WEB APIs 2015</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../30_web_api/15_Rest_With_Python.html">Rest with Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../30_web_api/20_Web_api_2023.html">Web API 2023</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../30_web_api/25_baseball_stats.html">Example Statcast baseball data API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../30_web_api/80_Assignment3.html">Assignment 3 the mystery Vladimir Guerrero Jr.</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../90_notes/20_notes.html">October 7th Plan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../90_notes/30_notes.html">Nov 4th plan</a></li>
 </ul>
 
     </div>
@@ -385,6 +393,19 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">cow</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">cow</span><span class="p">))</span>
+<span class="n">cow</span> <span class="o">=</span> <span class="s1">&#39;cow&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">cow</span><span class="p">))</span>
+<span class="n">cow</span> <span class="o">=</span> <span class="n">pd</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">cow</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;int&#39;&gt;
+&lt;class &#39;str&#39;&gt;
+&lt;class &#39;module&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -572,7 +593,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -619,198 +640,6 @@ document.write(`
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th>0</th>
-      <td>BAL</td>
-      <td>96</td>
-      <td>66</td>
-      <td>28.3</td>
-      <td>27.7</td>
-      <td>705</td>
-      <td>1434</td>
-      <td>264</td>
-      <td>16</td>
-      <td>211</td>
-      <td>...</td>
-      <td>1174</td>
-      <td>59</td>
-      <td>2</td>
-      <td>42</td>
-      <td>6104</td>
-      <td>112</td>
-      <td>2.9</td>
-      <td>7.2</td>
-      <td>2.49</td>
-      <td>1127</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>BOS</td>
-      <td>71</td>
-      <td>91</td>
-      <td>29.2</td>
-      <td>29.9</td>
-      <td>634</td>
-      <td>1355</td>
-      <td>282</td>
-      <td>20</td>
-      <td>123</td>
-      <td>...</td>
-      <td>1213</td>
-      <td>47</td>
-      <td>5</td>
-      <td>51</td>
-      <td>6231</td>
-      <td>97</td>
-      <td>3.0</td>
-      <td>7.4</td>
-      <td>2.52</td>
-      <td>1119</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>CHW</td>
-      <td>73</td>
-      <td>89</td>
-      <td>27.7</td>
-      <td>27.4</td>
-      <td>660</td>
-      <td>1400</td>
-      <td>279</td>
-      <td>32</td>
-      <td>155</td>
-      <td>...</td>
-      <td>1152</td>
-      <td>69</td>
-      <td>3</td>
-      <td>75</td>
-      <td>6255</td>
-      <td>90</td>
-      <td>3.5</td>
-      <td>7.2</td>
-      <td>2.07</td>
-      <td>1174</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>CLE</td>
-      <td>85</td>
-      <td>77</td>
-      <td>28.5</td>
-      <td>27.2</td>
-      <td>669</td>
-      <td>1411</td>
-      <td>284</td>
-      <td>23</td>
-      <td>142</td>
-      <td>...</td>
-      <td>1450</td>
-      <td>58</td>
-      <td>2</td>
-      <td>56</td>
-      <td>6193</td>
-      <td>104</td>
-      <td>2.8</td>
-      <td>8.9</td>
-      <td>3.13</td>
-      <td>1135</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>DET</td>
-      <td>90</td>
-      <td>72</td>
-      <td>29.8</td>
-      <td>28.5</td>
-      <td>757</td>
-      <td>1557</td>
-      <td>325</td>
-      <td>26</td>
-      <td>155</td>
-      <td>...</td>
-      <td>1244</td>
-      <td>42</td>
-      <td>9</td>
-      <td>43</td>
-      <td>6191</td>
-      <td>100</td>
-      <td>2.9</td>
-      <td>7.7</td>
-      <td>2.69</td>
-      <td>1124</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>HOU</td>
-      <td>70</td>
-      <td>92</td>
-      <td>25.7</td>
-      <td>27.9</td>
-      <td>629</td>
-      <td>1317</td>
-      <td>240</td>
-      <td>19</td>
-      <td>163</td>
-      <td>...</td>
-      <td>1137</td>
-      <td>52</td>
-      <td>7</td>
-      <td>57</td>
-      <td>6154</td>
-      <td>95</td>
-      <td>3.0</td>
-      <td>7.1</td>
-      <td>2.35</td>
-      <td>1115</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>KCR</td>
-      <td>89</td>
-      <td>73</td>
-      <td>28.2</td>
-      <td>28.9</td>
-      <td>651</td>
-      <td>1456</td>
-      <td>286</td>
-      <td>29</td>
-      <td>95</td>
-      <td>...</td>
-      <td>1168</td>
-      <td>56</td>
-      <td>6</td>
-      <td>58</td>
-      <td>6101</td>
-      <td>114</td>
-      <td>2.7</td>
-      <td>7.2</td>
-      <td>2.65</td>
-      <td>1125</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>LAA</td>
-      <td>98</td>
-      <td>64</td>
-      <td>29.3</td>
-      <td>28.4</td>
-      <td>773</td>
-      <td>1464</td>
-      <td>304</td>
-      <td>31</td>
-      <td>155</td>
-      <td>...</td>
-      <td>1342</td>
-      <td>63</td>
-      <td>4</td>
-      <td>74</td>
-      <td>6179</td>
-      <td>102</td>
-      <td>3.1</td>
-      <td>8.1</td>
-      <td>2.66</td>
-      <td>1101</td>
-    </tr>
     <tr>
       <th>8</th>
       <td>MIN</td>
@@ -1005,7 +834,7 @@ document.write(`
     </tr>
   </tbody>
 </table>
-<p>16 rows × 49 columns</p>
+<p>8 rows × 49 columns</p>
 </div></div></div>
 </div>
 <p>Print the shape, columns and row indexes of this dataset</p>
@@ -1037,8 +866,9 @@ index:  RangeIndex(start=0, stop=16, step=1)
 <p>Get a column of data by name</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wins</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;W&quot;</span><span class="p">]</span>
-<span class="nb">print</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">wins</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;type of df variable is &#39;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+<span class="n">wins</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;W&#39;</span><span class="p">]</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;type of wins varialbe is &#39;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">wins</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">wins</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">()</span>
@@ -1047,7 +877,8 @@ index:  RangeIndex(start=0, stop=16, step=1)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.series.Series&#39;&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>type of df variable is  &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+type of wins varialbe is  &lt;class &#39;pandas.core.series.Series&#39;&gt;
 
 (16,)
 
@@ -1085,6 +916,14 @@ Name: W, dtype: int64
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dataset from Python for Data Analysis by Wes Mckinney</span>
 <span class="n">apple</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;apple.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;type of apple is &#39;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">apple</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;shape of apple is &#39;</span><span class="p">,</span><span class="n">apple</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>type of apple is  &lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+shape of apple is  (8640, 5)
 </pre></div>
 </div>
 </div>
@@ -1131,7 +970,133 @@ Index([&#39;Open&#39;, &#39;High&#39;, &#39;Low&#39;, &#39;Close&#39;, &#39;Volu
 <p>get a range of dates</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">apple</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2012-12-4&#39;</span><span class="p">:</span><span class="s1">&#39;2012-12-10&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Tm</th>
+      <th>W</th>
+      <th>L</th>
+      <th>BatAge</th>
+      <th>PAge</th>
+      <th>R</th>
+      <th>H</th>
+      <th>2B</th>
+      <th>3B</th>
+      <th>HR</th>
+      <th>...</th>
+      <th>SO_a</th>
+      <th>HBP_a</th>
+      <th>BK</th>
+      <th>WP</th>
+      <th>BF</th>
+      <th>ERA+</th>
+      <th>BB9</th>
+      <th>SO9</th>
+      <th>SO/W</th>
+      <th>LOB.1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>CLE</td>
+      <td>85</td>
+      <td>77</td>
+      <td>28.5</td>
+      <td>27.2</td>
+      <td>669</td>
+      <td>1411</td>
+      <td>284</td>
+      <td>23</td>
+      <td>142</td>
+      <td>...</td>
+      <td>1450</td>
+      <td>58</td>
+      <td>2</td>
+      <td>56</td>
+      <td>6193</td>
+      <td>104</td>
+      <td>2.8</td>
+      <td>8.9</td>
+      <td>3.13</td>
+      <td>1135</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>DET</td>
+      <td>90</td>
+      <td>72</td>
+      <td>29.8</td>
+      <td>28.5</td>
+      <td>757</td>
+      <td>1557</td>
+      <td>325</td>
+      <td>26</td>
+      <td>155</td>
+      <td>...</td>
+      <td>1244</td>
+      <td>42</td>
+      <td>9</td>
+      <td>43</td>
+      <td>6191</td>
+      <td>100</td>
+      <td>2.9</td>
+      <td>7.7</td>
+      <td>2.69</td>
+      <td>1124</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>HOU</td>
+      <td>70</td>
+      <td>92</td>
+      <td>25.7</td>
+      <td>27.9</td>
+      <td>629</td>
+      <td>1317</td>
+      <td>240</td>
+      <td>19</td>
+      <td>163</td>
+      <td>...</td>
+      <td>1137</td>
+      <td>52</td>
+      <td>7</td>
+      <td>57</td>
+      <td>6154</td>
+      <td>95</td>
+      <td>3.0</td>
+      <td>7.1</td>
+      <td>2.35</td>
+      <td>1115</td>
+    </tr>
+  </tbody>
+</table>
+<p>3 rows × 49 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">apple</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2002-12-6&#39;</span><span class="p">:</span><span class="s1">&#39;2012-12-10&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1210,8 +1175,57 @@ Index([&#39;Open&#39;, &#39;High&#39;, &#39;Low&#39;, &#39;Close&#39;, &#39;Volu
       <td>82.26</td>
       <td>139482392.0</td>
     </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2002-12-12</th>
+      <td>1.11</td>
+      <td>1.11</td>
+      <td>1.07</td>
+      <td>1.08</td>
+      <td>35819000.0</td>
+    </tr>
+    <tr>
+      <th>2002-12-11</th>
+      <td>1.09</td>
+      <td>1.11</td>
+      <td>1.08</td>
+      <td>1.11</td>
+      <td>60757200.0</td>
+    </tr>
+    <tr>
+      <th>2002-12-10</th>
+      <td>1.05</td>
+      <td>1.10</td>
+      <td>1.05</td>
+      <td>1.09</td>
+      <td>74708200.0</td>
+    </tr>
+    <tr>
+      <th>2002-12-09</th>
+      <td>1.07</td>
+      <td>1.07</td>
+      <td>1.05</td>
+      <td>1.05</td>
+      <td>56326200.0</td>
+    </tr>
+    <tr>
+      <th>2002-12-06</th>
+      <td>1.05</td>
+      <td>1.08</td>
+      <td>1.04</td>
+      <td>1.07</td>
+      <td>60109000.0</td>
+    </tr>
   </tbody>
 </table>
+<p>2534 rows × 5 columns</p>
 </div></div></div>
 </div>
 <p>Can also get row by integer index</p>
@@ -1253,23 +1267,10 @@ standard deviation is: 24.192695823499612
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">over_100</span><span class="o">=</span><span class="n">apple</span><span class="p">[</span><span class="n">apple</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">100</span><span class="p">]</span>
+<span class="n">display</span> <span class="p">(</span><span class="n">over_100</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">over_100</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">over_100</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">apple</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">][</span><span class="n">apple</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">100</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(115, 5)
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>115
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">apple</span><span class="p">[</span><span class="n">apple</span><span class="o">.</span><span class="n">Close</span><span class="o">==</span><span class="n">apple</span><span class="o">.</span><span class="n">Close</span><span class="o">.</span><span class="n">min</span><span class="p">()]</span>
 </pre></div>
 </div>
 </div>
@@ -1309,32 +1310,1492 @@ standard deviation is: 24.192695823499612
   </thead>
   <tbody>
     <tr>
-      <th>2003-04-21</th>
-      <td>0.94</td>
-      <td>0.94</td>
-      <td>0.93</td>
-      <td>0.94</td>
-      <td>38279052.0</td>
+      <th>2015-02-23</th>
+      <td>130.02</td>
+      <td>133.00</td>
+      <td>129.66</td>
+      <td>133.00</td>
+      <td>67871830.0</td>
     </tr>
     <tr>
-      <th>2003-04-17</th>
-      <td>0.94</td>
-      <td>0.95</td>
-      <td>0.91</td>
-      <td>0.94</td>
-      <td>154382186.0</td>
+      <th>2015-02-20</th>
+      <td>128.62</td>
+      <td>129.50</td>
+      <td>128.05</td>
+      <td>129.50</td>
+      <td>48948419.0</td>
     </tr>
     <tr>
-      <th>2003-04-11</th>
-      <td>1.00</td>
-      <td>1.03</td>
-      <td>0.92</td>
-      <td>0.94</td>
-      <td>348620426.0</td>
+      <th>2015-02-19</th>
+      <td>128.48</td>
+      <td>129.03</td>
+      <td>128.33</td>
+      <td>128.45</td>
+      <td>37362381.0</td>
+    </tr>
+    <tr>
+      <th>2015-02-18</th>
+      <td>127.62</td>
+      <td>128.78</td>
+      <td>127.45</td>
+      <td>128.72</td>
+      <td>44891737.0</td>
+    </tr>
+    <tr>
+      <th>2015-02-17</th>
+      <td>127.49</td>
+      <td>128.88</td>
+      <td>126.92</td>
+      <td>127.83</td>
+      <td>63152405.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(115, 5)
+(115, 5)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>115
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">apple</span><span class="p">[</span><span class="n">apple</span><span class="o">.</span><span class="n">Close</span><span class="o">==</span><span class="n">apple</span><span class="o">.</span><span class="n">Close</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Open</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Close</th>
+      <th>Volume</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2015-02-23</th>
+      <td>130.02</td>
+      <td>133.0</td>
+      <td>129.66</td>
+      <td>133.0</td>
+      <td>67871830.0</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">apple</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Open</th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Close</th>
+      <th>Volume</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2015-02-23</th>
+      <td>130.02</td>
+      <td>133.0</td>
+      <td>129.66</td>
+      <td>133.0</td>
+      <td>67871830.0</td>
+    </tr>
+    <tr>
+      <th>2015-02-20</th>
+      <td>128.62</td>
+      <td>129.5</td>
+      <td>128.05</td>
+      <td>129.5</td>
+      <td>48948419.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">apple</span><span class="o">.</span><span class="n">plot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on PlotAccessor in module pandas.plotting._core object:
+
+class PlotAccessor(pandas.core.base.PandasObject)
+ |  PlotAccessor(data) -&gt; &#39;None&#39;
+ |  
+ |  Make plots of Series or DataFrame.
+ |  
+ |  Uses the backend specified by the
+ |  option ``plotting.backend``. By default, matplotlib is used.
+ |  
+ |  Parameters
+ |  ----------
+ |  data : Series or DataFrame
+ |      The object for which the method is called.
+ |  x : label or position, default None
+ |      Only used if data is a DataFrame.
+ |  y : label, position or list of label, positions, default None
+ |      Allows plotting of one column versus another. Only used if data is a
+ |      DataFrame.
+ |  kind : str
+ |      The kind of plot to produce:
+ |  
+ |      - &#39;line&#39; : line plot (default)
+ |      - &#39;bar&#39; : vertical bar plot
+ |      - &#39;barh&#39; : horizontal bar plot
+ |      - &#39;hist&#39; : histogram
+ |      - &#39;box&#39; : boxplot
+ |      - &#39;kde&#39; : Kernel Density Estimation plot
+ |      - &#39;density&#39; : same as &#39;kde&#39;
+ |      - &#39;area&#39; : area plot
+ |      - &#39;pie&#39; : pie plot
+ |      - &#39;scatter&#39; : scatter plot (DataFrame only)
+ |      - &#39;hexbin&#39; : hexbin plot (DataFrame only)
+ |  ax : matplotlib axes object, default None
+ |      An axes of the current figure.
+ |  subplots : bool or sequence of iterables, default False
+ |      Whether to group columns into subplots:
+ |  
+ |      - ``False`` : No subplots will be used
+ |      - ``True`` : Make separate subplots for each column.
+ |      - sequence of iterables of column labels: Create a subplot for each
+ |        group of columns. For example `[(&#39;a&#39;, &#39;c&#39;), (&#39;b&#39;, &#39;d&#39;)]` will
+ |        create 2 subplots: one with columns &#39;a&#39; and &#39;c&#39;, and one
+ |        with columns &#39;b&#39; and &#39;d&#39;. Remaining columns that aren&#39;t specified
+ |        will be plotted in additional subplots (one per column).
+ |  
+ |        .. versionadded:: 1.5.0
+ |  
+ |  sharex : bool, default True if ax is None else False
+ |      In case ``subplots=True``, share x axis and set some x axis labels
+ |      to invisible; defaults to True if ax is None otherwise False if
+ |      an ax is passed in; Be aware, that passing in both an ax and
+ |      ``sharex=True`` will alter all x axis labels for all axis in a figure.
+ |  sharey : bool, default False
+ |      In case ``subplots=True``, share y axis and set some y axis labels to invisible.
+ |  layout : tuple, optional
+ |      (rows, columns) for the layout of subplots.
+ |  figsize : a tuple (width, height) in inches
+ |      Size of a figure object.
+ |  use_index : bool, default True
+ |      Use index as ticks for x axis.
+ |  title : str or list
+ |      Title to use for the plot. If a string is passed, print the string
+ |      at the top of the figure. If a list is passed and `subplots` is
+ |      True, print each item in the list above the corresponding subplot.
+ |  grid : bool, default None (matlab style default)
+ |      Axis grid lines.
+ |  legend : bool or {&#39;reverse&#39;}
+ |      Place legend on axis subplots.
+ |  style : list or dict
+ |      The matplotlib line style per column.
+ |  logx : bool or &#39;sym&#39;, default False
+ |      Use log scaling or symlog scaling on x axis.
+ |  
+ |  logy : bool or &#39;sym&#39; default False
+ |      Use log scaling or symlog scaling on y axis.
+ |  
+ |  loglog : bool or &#39;sym&#39;, default False
+ |      Use log scaling or symlog scaling on both x and y axes.
+ |  
+ |  xticks : sequence
+ |      Values to use for the xticks.
+ |  yticks : sequence
+ |      Values to use for the yticks.
+ |  xlim : 2-tuple/list
+ |      Set the x limits of the current axes.
+ |  ylim : 2-tuple/list
+ |      Set the y limits of the current axes.
+ |  xlabel : label, optional
+ |      Name to use for the xlabel on x-axis. Default uses index name as xlabel, or the
+ |      x-column name for planar plots.
+ |  
+ |      .. versionadded:: 1.1.0
+ |  
+ |      .. versionchanged:: 1.2.0
+ |  
+ |         Now applicable to planar plots (`scatter`, `hexbin`).
+ |  
+ |      .. versionchanged:: 2.0.0
+ |  
+ |          Now applicable to histograms.
+ |  
+ |  ylabel : label, optional
+ |      Name to use for the ylabel on y-axis. Default will show no ylabel, or the
+ |      y-column name for planar plots.
+ |  
+ |      .. versionadded:: 1.1.0
+ |  
+ |      .. versionchanged:: 1.2.0
+ |  
+ |         Now applicable to planar plots (`scatter`, `hexbin`).
+ |  
+ |      .. versionchanged:: 2.0.0
+ |  
+ |          Now applicable to histograms.
+ |  
+ |  rot : float, default None
+ |      Rotation for ticks (xticks for vertical, yticks for horizontal
+ |      plots).
+ |  fontsize : float, default None
+ |      Font size for xticks and yticks.
+ |  colormap : str or matplotlib colormap object, default None
+ |      Colormap to select colors from. If string, load colormap with that
+ |      name from matplotlib.
+ |  colorbar : bool, optional
+ |      If True, plot colorbar (only relevant for &#39;scatter&#39; and &#39;hexbin&#39;
+ |      plots).
+ |  position : float
+ |      Specify relative alignments for bar plot layout.
+ |      From 0 (left/bottom-end) to 1 (right/top-end). Default is 0.5
+ |      (center).
+ |  table : bool, Series or DataFrame, default False
+ |      If True, draw a table using the data in the DataFrame and the data
+ |      will be transposed to meet matplotlib&#39;s default layout.
+ |      If a Series or DataFrame is passed, use passed data to draw a
+ |      table.
+ |  yerr : DataFrame, Series, array-like, dict and str
+ |      See :ref:`Plotting with Error Bars &lt;visualization.errorbars&gt;` for
+ |      detail.
+ |  xerr : DataFrame, Series, array-like, dict and str
+ |      Equivalent to yerr.
+ |  stacked : bool, default False in line and bar plots, and True in area plot
+ |      If True, create stacked plot.
+ |  secondary_y : bool or sequence, default False
+ |      Whether to plot on the secondary y-axis if a list/tuple, which
+ |      columns to plot on secondary y-axis.
+ |  mark_right : bool, default True
+ |      When using a secondary_y axis, automatically mark the column
+ |      labels with &quot;(right)&quot; in the legend.
+ |  include_bool : bool, default is False
+ |      If True, boolean values can be plotted.
+ |  backend : str, default None
+ |      Backend to use instead of the backend specified in the option
+ |      ``plotting.backend``. For instance, &#39;matplotlib&#39;. Alternatively, to
+ |      specify the ``plotting.backend`` for the whole session, set
+ |      ``pd.options.plotting.backend``.
+ |  **kwargs
+ |      Options to pass to matplotlib plotting method.
+ |  
+ |  Returns
+ |  -------
+ |  :class:`matplotlib.axes.Axes` or numpy.ndarray of them
+ |      If the backend is not the default matplotlib one, the return value
+ |      will be the object returned by the backend.
+ |  
+ |  Notes
+ |  -----
+ |  - See matplotlib documentation online for more on this subject
+ |  - If `kind` = &#39;bar&#39; or &#39;barh&#39;, you can specify relative alignments
+ |    for bar plot layout by `position` keyword.
+ |    From 0 (left/bottom-end) to 1 (right/top-end). Default is 0.5
+ |    (center)
+ |  
+ |  Method resolution order:
+ |      PlotAccessor
+ |      pandas.core.base.PandasObject
+ |      pandas.core.accessor.DirNamesMixin
+ |      builtins.object
+ |  
+ |  Methods defined here:
+ |  
+ |  __call__(self, *args, **kwargs)
+ |      Make plots of Series or DataFrame.
+ |      
+ |      Uses the backend specified by the
+ |      option ``plotting.backend``. By default, matplotlib is used.
+ |      
+ |      Parameters
+ |      ----------
+ |      data : Series or DataFrame
+ |          The object for which the method is called.
+ |      x : label or position, default None
+ |          Only used if data is a DataFrame.
+ |      y : label, position or list of label, positions, default None
+ |          Allows plotting of one column versus another. Only used if data is a
+ |          DataFrame.
+ |      kind : str
+ |          The kind of plot to produce:
+ |      
+ |          - &#39;line&#39; : line plot (default)
+ |          - &#39;bar&#39; : vertical bar plot
+ |          - &#39;barh&#39; : horizontal bar plot
+ |          - &#39;hist&#39; : histogram
+ |          - &#39;box&#39; : boxplot
+ |          - &#39;kde&#39; : Kernel Density Estimation plot
+ |          - &#39;density&#39; : same as &#39;kde&#39;
+ |          - &#39;area&#39; : area plot
+ |          - &#39;pie&#39; : pie plot
+ |          - &#39;scatter&#39; : scatter plot (DataFrame only)
+ |          - &#39;hexbin&#39; : hexbin plot (DataFrame only)
+ |      ax : matplotlib axes object, default None
+ |          An axes of the current figure.
+ |      subplots : bool or sequence of iterables, default False
+ |          Whether to group columns into subplots:
+ |      
+ |          - ``False`` : No subplots will be used
+ |          - ``True`` : Make separate subplots for each column.
+ |          - sequence of iterables of column labels: Create a subplot for each
+ |            group of columns. For example `[(&#39;a&#39;, &#39;c&#39;), (&#39;b&#39;, &#39;d&#39;)]` will
+ |            create 2 subplots: one with columns &#39;a&#39; and &#39;c&#39;, and one
+ |            with columns &#39;b&#39; and &#39;d&#39;. Remaining columns that aren&#39;t specified
+ |            will be plotted in additional subplots (one per column).
+ |      
+ |            .. versionadded:: 1.5.0
+ |      
+ |      sharex : bool, default True if ax is None else False
+ |          In case ``subplots=True``, share x axis and set some x axis labels
+ |          to invisible; defaults to True if ax is None otherwise False if
+ |          an ax is passed in; Be aware, that passing in both an ax and
+ |          ``sharex=True`` will alter all x axis labels for all axis in a figure.
+ |      sharey : bool, default False
+ |          In case ``subplots=True``, share y axis and set some y axis labels to invisible.
+ |      layout : tuple, optional
+ |          (rows, columns) for the layout of subplots.
+ |      figsize : a tuple (width, height) in inches
+ |          Size of a figure object.
+ |      use_index : bool, default True
+ |          Use index as ticks for x axis.
+ |      title : str or list
+ |          Title to use for the plot. If a string is passed, print the string
+ |          at the top of the figure. If a list is passed and `subplots` is
+ |          True, print each item in the list above the corresponding subplot.
+ |      grid : bool, default None (matlab style default)
+ |          Axis grid lines.
+ |      legend : bool or {&#39;reverse&#39;}
+ |          Place legend on axis subplots.
+ |      style : list or dict
+ |          The matplotlib line style per column.
+ |      logx : bool or &#39;sym&#39;, default False
+ |          Use log scaling or symlog scaling on x axis.
+ |      
+ |      logy : bool or &#39;sym&#39; default False
+ |          Use log scaling or symlog scaling on y axis.
+ |      
+ |      loglog : bool or &#39;sym&#39;, default False
+ |          Use log scaling or symlog scaling on both x and y axes.
+ |      
+ |      xticks : sequence
+ |          Values to use for the xticks.
+ |      yticks : sequence
+ |          Values to use for the yticks.
+ |      xlim : 2-tuple/list
+ |          Set the x limits of the current axes.
+ |      ylim : 2-tuple/list
+ |          Set the y limits of the current axes.
+ |      xlabel : label, optional
+ |          Name to use for the xlabel on x-axis. Default uses index name as xlabel, or the
+ |          x-column name for planar plots.
+ |      
+ |          .. versionadded:: 1.1.0
+ |      
+ |          .. versionchanged:: 1.2.0
+ |      
+ |             Now applicable to planar plots (`scatter`, `hexbin`).
+ |      
+ |          .. versionchanged:: 2.0.0
+ |      
+ |              Now applicable to histograms.
+ |      
+ |      ylabel : label, optional
+ |          Name to use for the ylabel on y-axis. Default will show no ylabel, or the
+ |          y-column name for planar plots.
+ |      
+ |          .. versionadded:: 1.1.0
+ |      
+ |          .. versionchanged:: 1.2.0
+ |      
+ |             Now applicable to planar plots (`scatter`, `hexbin`).
+ |      
+ |          .. versionchanged:: 2.0.0
+ |      
+ |              Now applicable to histograms.
+ |      
+ |      rot : float, default None
+ |          Rotation for ticks (xticks for vertical, yticks for horizontal
+ |          plots).
+ |      fontsize : float, default None
+ |          Font size for xticks and yticks.
+ |      colormap : str or matplotlib colormap object, default None
+ |          Colormap to select colors from. If string, load colormap with that
+ |          name from matplotlib.
+ |      colorbar : bool, optional
+ |          If True, plot colorbar (only relevant for &#39;scatter&#39; and &#39;hexbin&#39;
+ |          plots).
+ |      position : float
+ |          Specify relative alignments for bar plot layout.
+ |          From 0 (left/bottom-end) to 1 (right/top-end). Default is 0.5
+ |          (center).
+ |      table : bool, Series or DataFrame, default False
+ |          If True, draw a table using the data in the DataFrame and the data
+ |          will be transposed to meet matplotlib&#39;s default layout.
+ |          If a Series or DataFrame is passed, use passed data to draw a
+ |          table.
+ |      yerr : DataFrame, Series, array-like, dict and str
+ |          See :ref:`Plotting with Error Bars &lt;visualization.errorbars&gt;` for
+ |          detail.
+ |      xerr : DataFrame, Series, array-like, dict and str
+ |          Equivalent to yerr.
+ |      stacked : bool, default False in line and bar plots, and True in area plot
+ |          If True, create stacked plot.
+ |      secondary_y : bool or sequence, default False
+ |          Whether to plot on the secondary y-axis if a list/tuple, which
+ |          columns to plot on secondary y-axis.
+ |      mark_right : bool, default True
+ |          When using a secondary_y axis, automatically mark the column
+ |          labels with &quot;(right)&quot; in the legend.
+ |      include_bool : bool, default is False
+ |          If True, boolean values can be plotted.
+ |      backend : str, default None
+ |          Backend to use instead of the backend specified in the option
+ |          ``plotting.backend``. For instance, &#39;matplotlib&#39;. Alternatively, to
+ |          specify the ``plotting.backend`` for the whole session, set
+ |          ``pd.options.plotting.backend``.
+ |      **kwargs
+ |          Options to pass to matplotlib plotting method.
+ |      
+ |      Returns
+ |      -------
+ |      :class:`matplotlib.axes.Axes` or numpy.ndarray of them
+ |          If the backend is not the default matplotlib one, the return value
+ |          will be the object returned by the backend.
+ |      
+ |      Notes
+ |      -----
+ |      - See matplotlib documentation online for more on this subject
+ |      - If `kind` = &#39;bar&#39; or &#39;barh&#39;, you can specify relative alignments
+ |        for bar plot layout by `position` keyword.
+ |        From 0 (left/bottom-end) to 1 (right/top-end). Default is 0.5
+ |        (center)
+ |  
+ |  __init__(self, data) -&gt; &#39;None&#39;
+ |      Initialize self.  See help(type(self)) for accurate signature.
+ |  
+ |  area(self, x=None, y=None, stacked: &#39;bool&#39; = True, **kwargs) -&gt; &#39;PlotAccessor&#39;
+ |      Draw a stacked area plot.
+ |      
+ |      An area plot displays quantitative data visually.
+ |      This function wraps the matplotlib area function.
+ |      
+ |      Parameters
+ |      ----------
+ |      x : label or position, optional
+ |          Coordinates for the X axis. By default uses the index.
+ |      y : label or position, optional
+ |          Column to plot. By default uses all columns.
+ |      stacked : bool, default True
+ |          Area plots are stacked by default. Set to False to create a
+ |          unstacked plot.
+ |      **kwargs
+ |          Additional keyword arguments are documented in
+ |          :meth:`DataFrame.plot`.
+ |      
+ |      Returns
+ |      -------
+ |      matplotlib.axes.Axes or numpy.ndarray
+ |          Area plot, or array of area plots if subplots is True.
+ |      
+ |      See Also
+ |      --------
+ |      DataFrame.plot : Make plots of DataFrame using matplotlib / pylab.
+ |      
+ |      Examples
+ |      --------
+ |      Draw an area plot based on basic business metrics:
+ |      
+ |      .. plot::
+ |          :context: close-figs
+ |      
+ |          &gt;&gt;&gt; df = pd.DataFrame({
+ |          ...     &#39;sales&#39;: [3, 2, 3, 9, 10, 6],
+ |          ...     &#39;signups&#39;: [5, 5, 6, 12, 14, 13],
+ |          ...     &#39;visits&#39;: [20, 42, 28, 62, 81, 50],
+ |          ... }, index=pd.date_range(start=&#39;2018/01/01&#39;, end=&#39;2018/07/01&#39;,
+ |          ...                        freq=&#39;M&#39;))
+ |          &gt;&gt;&gt; ax = df.plot.area()
+ |      
+ |      Area plots are stacked by default. To produce an unstacked plot,
+ |      pass ``stacked=False``:
+ |      
+ |      .. plot::
+ |          :context: close-figs
+ |      
+ |          &gt;&gt;&gt; ax = df.plot.area(stacked=False)
+ |      
+ |      Draw an area plot for a single column:
+ |      
+ |      .. plot::
+ |          :context: close-figs
+ |      
+ |          &gt;&gt;&gt; ax = df.plot.area(y=&#39;sales&#39;)
+ |      
+ |      Draw with a different `x`:
+ |      
+ |      .. plot::
+ |          :context: close-figs
+ |      
+ |          &gt;&gt;&gt; df = pd.DataFrame({
+ |          ...     &#39;sales&#39;: [3, 2, 3],
+ |          ...     &#39;visits&#39;: [20, 42, 28],
+ |          ...     &#39;day&#39;: [1, 2, 3],
+ |          ... })
+ |          &gt;&gt;&gt; ax = df.plot.area(x=&#39;day&#39;)
+ |  
+ |  bar(self, x=None, y=None, **kwargs) -&gt; &#39;PlotAccessor&#39;
+ |      Vertical bar plot.
+ |      
+ |      A bar plot is a plot that presents categorical data with
+ |      rectangular bars with lengths proportional to the values that they
+ |      represent. A bar plot shows comparisons among discrete categories. One
+ |      axis of the plot shows the specific categories being compared, and the
+ |      other axis represents a measured value.
+ |      
+ |      Parameters
+ |      ----------
+ |      x : label or position, optional
+ |          Allows plotting of one column versus another. If not specified,
+ |          the index of the DataFrame is used.
+ |      y : label or position, optional
+ |          Allows plotting of one column versus another. If not specified,
+ |          all numerical columns are used.
+ |      color : str, array-like, or dict, optional
+ |          The color for each of the DataFrame&#39;s columns. Possible values are:
+ |      
+ |          - A single color string referred to by name, RGB or RGBA code,
+ |              for instance &#39;red&#39; or &#39;#a98d19&#39;.
+ |      
+ |          - A sequence of color strings referred to by name, RGB or RGBA
+ |              code, which will be used for each column recursively. For
+ |              instance [&#39;green&#39;,&#39;yellow&#39;] each column&#39;s bar will be filled in
+ |              green or yellow, alternatively. If there is only a single column to
+ |              be plotted, then only the first color from the color list will be
+ |              used.
+ |      
+ |          - A dict of the form {column name : color}, so that each column will be
+ |              colored accordingly. For example, if your columns are called `a` and
+ |              `b`, then passing {&#39;a&#39;: &#39;green&#39;, &#39;b&#39;: &#39;red&#39;} will color bars for
+ |              column `a` in green and bars for column `b` in red.
+ |      
+ |          .. versionadded:: 1.1.0
+ |      
+ |      **kwargs
+ |          Additional keyword arguments are documented in
+ |          :meth:`DataFrame.plot`.
+ |      
+ |      Returns
+ |      -------
+ |      matplotlib.axes.Axes or np.ndarray of them
+ |          An ndarray is returned with one :class:`matplotlib.axes.Axes`
+ |          per column when ``subplots=True``.
+ |      
+ |              See Also
+ |              --------
+ |              DataFrame.plot.barh : Horizontal bar plot.
+ |              DataFrame.plot : Make plots of a DataFrame.
+ |              matplotlib.pyplot.bar : Make a bar plot with matplotlib.
+ |      
+ |              Examples
+ |              --------
+ |              Basic plot.
+ |      
+ |              .. plot::
+ |                  :context: close-figs
+ |      
+ |                  &gt;&gt;&gt; df = pd.DataFrame({&#39;lab&#39;:[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;], &#39;val&#39;:[10, 30, 20]})
+ |                  &gt;&gt;&gt; ax = df.plot.bar(x=&#39;lab&#39;, y=&#39;val&#39;, rot=0)
+ |      
+ |              Plot a whole dataframe to a bar plot. Each column is assigned a
+ |              distinct color, and each row is nested in a group along the
+ |              horizontal axis.
+ |      
+ |              .. plot::
+ |                  :context: close-figs
+ |      
+ |                  &gt;&gt;&gt; speed = [0.1, 17.5, 40, 48, 52, 69, 88]
+ |                  &gt;&gt;&gt; lifespan = [2, 8, 70, 1.5, 25, 12, 28]
+ |                  &gt;&gt;&gt; index = [&#39;snail&#39;, &#39;pig&#39;, &#39;elephant&#39;,
+ |                  ...          &#39;rabbit&#39;, &#39;giraffe&#39;, &#39;coyote&#39;, &#39;horse&#39;]
+ |                  &gt;&gt;&gt; df = pd.DataFrame({&#39;speed&#39;: speed,
+ |                  ...                    &#39;lifespan&#39;: lifespan}, index=index)
+ |                  &gt;&gt;&gt; ax = df.plot.bar(rot=0)
+ |      
+ |              Plot stacked bar charts for the DataFrame
+ |      
+ |              .. plot::
+ |                  :context: close-figs
+ |      
+ |                  &gt;&gt;&gt; ax = df.plot.bar(stacked=True)
+ |      
+ |              Instead of nesting, the figure can be split by column with
+ |              ``subplots=True``. In this case, a :class:`numpy.ndarray` of
+ |              :class:`matplotlib.axes.Axes` are returned.
+ |      
+ |              .. plot::
+ |                  :context: close-figs
+ |      
+ |                  &gt;&gt;&gt; axes = df.plot.bar(rot=0, subplots=True)
+ |                  &gt;&gt;&gt; axes[1].legend(loc=2)  # doctest: +SKIP
+ |      
+ |              If you don&#39;t like the default colours, you can specify how you&#39;d
+ |              like each column to be colored.
+ |      
+ |              .. plot::
+ |                  :context: close-figs
+ |      
+ |                  &gt;&gt;&gt; axes = df.plot.bar(
+ |                  ...     rot=0, subplots=True, color={&quot;speed&quot;: &quot;red&quot;, &quot;lifespan&quot;: &quot;green&quot;}
+ |                  ... )
+ |                  &gt;&gt;&gt; axes[1].legend(loc=2)  # doctest: +SKIP
+ |      
+ |              Plot a single column.
+ |      
+ |              .. plot::
+ |                  :context: close-figs
+ |      
+ |                  &gt;&gt;&gt; ax = df.plot.bar(y=&#39;speed&#39;, rot=0)
+ |      
+ |              Plot only selected categories for the DataFrame.
+ |      
+ |              .. plot::
+ |                  :context: close-figs
+ |      
+ |                  &gt;&gt;&gt; ax = df.plot.bar(x=&#39;lifespan&#39;, rot=0)
+ |  
+ |  barh(self, x=None, y=None, **kwargs) -&gt; &#39;PlotAccessor&#39;
+ |      Make a horizontal bar plot.
+ |      
+ |      A horizontal bar plot is a plot that presents quantitative data with
+ |      rectangular bars with lengths proportional to the values that they
+ |      represent. A bar plot shows comparisons among discrete categories. One
+ |      axis of the plot shows the specific categories being compared, and the
+ |      other axis represents a measured value.
+ |      
+ |      Parameters
+ |      ----------
+ |      x : label or position, optional
+ |          Allows plotting of one column versus another. If not specified,
+ |          the index of the DataFrame is used.
+ |      y : label or position, optional
+ |          Allows plotting of one column versus another. If not specified,
+ |          all numerical columns are used.
+ |      color : str, array-like, or dict, optional
+ |          The color for each of the DataFrame&#39;s columns. Possible values are:
+ |      
+ |          - A single color string referred to by name, RGB or RGBA code,
+ |              for instance &#39;red&#39; or &#39;#a98d19&#39;.
+ |      
+ |          - A sequence of color strings referred to by name, RGB or RGBA
+ |              code, which will be used for each column recursively. For
+ |              instance [&#39;green&#39;,&#39;yellow&#39;] each column&#39;s bar will be filled in
+ |              green or yellow, alternatively. If there is only a single column to
+ |              be plotted, then only the first color from the color list will be
+ |              used.
+ |      
+ |          - A dict of the form {column name : color}, so that each column will be
+ |              colored accordingly. For example, if your columns are called `a` and
+ |              `b`, then passing {&#39;a&#39;: &#39;green&#39;, &#39;b&#39;: &#39;red&#39;} will color bars for
+ |              column `a` in green and bars for column `b` in red.
+ |      
+ |          .. versionadded:: 1.1.0
+ |      
+ |      **kwargs
+ |          Additional keyword arguments are documented in
+ |          :meth:`DataFrame.plot`.
+ |      
+ |      Returns
+ |      -------
+ |      matplotlib.axes.Axes or np.ndarray of them
+ |          An ndarray is returned with one :class:`matplotlib.axes.Axes`
+ |          per column when ``subplots=True``.
+ |      
+ |              See Also
+ |              --------
+ |              DataFrame.plot.bar: Vertical bar plot.
+ |              DataFrame.plot : Make plots of DataFrame using matplotlib.
+ |              matplotlib.axes.Axes.bar : Plot a vertical bar plot using matplotlib.
+ |      
+ |              Examples
+ |              --------
+ |              Basic example
+ |      
+ |              .. plot::
+ |                  :context: close-figs
+ |      
+ |                  &gt;&gt;&gt; df = pd.DataFrame({&#39;lab&#39;: [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;], &#39;val&#39;: [10, 30, 20]})
+ |                  &gt;&gt;&gt; ax = df.plot.barh(x=&#39;lab&#39;, y=&#39;val&#39;)
+ |      
+ |              Plot a whole DataFrame to a horizontal bar plot
+ |      
+ |              .. plot::
+ |                  :context: close-figs
+ |      
+ |                  &gt;&gt;&gt; speed = [0.1, 17.5, 40, 48, 52, 69, 88]
+ |                  &gt;&gt;&gt; lifespan = [2, 8, 70, 1.5, 25, 12, 28]
+ |                  &gt;&gt;&gt; index = [&#39;snail&#39;, &#39;pig&#39;, &#39;elephant&#39;,
+ |                  ...          &#39;rabbit&#39;, &#39;giraffe&#39;, &#39;coyote&#39;, &#39;horse&#39;]
+ |                  &gt;&gt;&gt; df = pd.DataFrame({&#39;speed&#39;: speed,
+ |                  ...                    &#39;lifespan&#39;: lifespan}, index=index)
+ |                  &gt;&gt;&gt; ax = df.plot.barh()
+ |      
+ |              Plot stacked barh charts for the DataFrame
+ |      
+ |              .. plot::
+ |                  :context: close-figs
+ |      
+ |                  &gt;&gt;&gt; ax = df.plot.barh(stacked=True)
+ |      
+ |              We can specify colors for each column
+ |      
+ |              .. plot::
+ |                  :context: close-figs
+ |      
+ |                  &gt;&gt;&gt; ax = df.plot.barh(color={&quot;speed&quot;: &quot;red&quot;, &quot;lifespan&quot;: &quot;green&quot;})
+ |      
+ |              Plot a column of the DataFrame to a horizontal bar plot
+ |      
+ |              .. plot::
+ |                  :context: close-figs
+ |      
+ |                  &gt;&gt;&gt; speed = [0.1, 17.5, 40, 48, 52, 69, 88]
+ |                  &gt;&gt;&gt; lifespan = [2, 8, 70, 1.5, 25, 12, 28]
+ |                  &gt;&gt;&gt; index = [&#39;snail&#39;, &#39;pig&#39;, &#39;elephant&#39;,
+ |                  ...          &#39;rabbit&#39;, &#39;giraffe&#39;, &#39;coyote&#39;, &#39;horse&#39;]
+ |                  &gt;&gt;&gt; df = pd.DataFrame({&#39;speed&#39;: speed,
+ |                  ...                    &#39;lifespan&#39;: lifespan}, index=index)
+ |                  &gt;&gt;&gt; ax = df.plot.barh(y=&#39;speed&#39;)
+ |      
+ |              Plot DataFrame versus the desired column
+ |      
+ |              .. plot::
+ |                  :context: close-figs
+ |      
+ |                  &gt;&gt;&gt; speed = [0.1, 17.5, 40, 48, 52, 69, 88]
+ |                  &gt;&gt;&gt; lifespan = [2, 8, 70, 1.5, 25, 12, 28]
+ |                  &gt;&gt;&gt; index = [&#39;snail&#39;, &#39;pig&#39;, &#39;elephant&#39;,
+ |                  ...          &#39;rabbit&#39;, &#39;giraffe&#39;, &#39;coyote&#39;, &#39;horse&#39;]
+ |                  &gt;&gt;&gt; df = pd.DataFrame({&#39;speed&#39;: speed,
+ |                  ...                    &#39;lifespan&#39;: lifespan}, index=index)
+ |                  &gt;&gt;&gt; ax = df.plot.barh(x=&#39;lifespan&#39;)
+ |  
+ |  box(self, by=None, **kwargs) -&gt; &#39;PlotAccessor&#39;
+ |      Make a box plot of the DataFrame columns.
+ |      
+ |      A box plot is a method for graphically depicting groups of numerical
+ |      data through their quartiles.
+ |      The box extends from the Q1 to Q3 quartile values of the data,
+ |      with a line at the median (Q2). The whiskers extend from the edges
+ |      of box to show the range of the data. The position of the whiskers
+ |      is set by default to 1.5*IQR (IQR = Q3 - Q1) from the edges of the
+ |      box. Outlier points are those past the end of the whiskers.
+ |      
+ |      For further details see Wikipedia&#39;s
+ |      entry for `boxplot &lt;https://en.wikipedia.org/wiki/Box_plot&gt;`__.
+ |      
+ |      A consideration when using this chart is that the box and the whiskers
+ |      can overlap, which is very common when plotting small sets of data.
+ |      
+ |      Parameters
+ |      ----------
+ |      by : str or sequence
+ |          Column in the DataFrame to group by.
+ |      
+ |          .. versionchanged:: 1.4.0
+ |      
+ |             Previously, `by` is silently ignore and makes no groupings
+ |      
+ |      **kwargs
+ |          Additional keywords are documented in
+ |          :meth:`DataFrame.plot`.
+ |      
+ |      Returns
+ |      -------
+ |      :class:`matplotlib.axes.Axes` or numpy.ndarray of them
+ |      
+ |      See Also
+ |      --------
+ |      DataFrame.boxplot: Another method to draw a box plot.
+ |      Series.plot.box: Draw a box plot from a Series object.
+ |      matplotlib.pyplot.boxplot: Draw a box plot in matplotlib.
+ |      
+ |      Examples
+ |      --------
+ |      Draw a box plot from a DataFrame with four columns of randomly
+ |      generated data.
+ |      
+ |      .. plot::
+ |          :context: close-figs
+ |      
+ |          &gt;&gt;&gt; data = np.random.randn(25, 4)
+ |          &gt;&gt;&gt; df = pd.DataFrame(data, columns=list(&#39;ABCD&#39;))
+ |          &gt;&gt;&gt; ax = df.plot.box()
+ |      
+ |      You can also generate groupings if you specify the `by` parameter (which
+ |      can take a column name, or a list or tuple of column names):
+ |      
+ |      .. versionchanged:: 1.4.0
+ |      
+ |      .. plot::
+ |          :context: close-figs
+ |      
+ |          &gt;&gt;&gt; age_list = [8, 10, 12, 14, 72, 74, 76, 78, 20, 25, 30, 35, 60, 85]
+ |          &gt;&gt;&gt; df = pd.DataFrame({&quot;gender&quot;: list(&quot;MMMMMMMMFFFFFF&quot;), &quot;age&quot;: age_list})
+ |          &gt;&gt;&gt; ax = df.plot.box(column=&quot;age&quot;, by=&quot;gender&quot;, figsize=(10, 8))
+ |  
+ |  density = kde(self, bw_method=None, ind=None, **kwargs) -&gt; &#39;PlotAccessor&#39;
+ |  
+ |  hexbin(self, x, y, C=None, reduce_C_function=None, gridsize=None, **kwargs) -&gt; &#39;PlotAccessor&#39;
+ |      Generate a hexagonal binning plot.
+ |      
+ |      Generate a hexagonal binning plot of `x` versus `y`. If `C` is `None`
+ |      (the default), this is a histogram of the number of occurrences
+ |      of the observations at ``(x[i], y[i])``.
+ |      
+ |      If `C` is specified, specifies values at given coordinates
+ |      ``(x[i], y[i])``. These values are accumulated for each hexagonal
+ |      bin and then reduced according to `reduce_C_function`,
+ |      having as default the NumPy&#39;s mean function (:meth:`numpy.mean`).
+ |      (If `C` is specified, it must also be a 1-D sequence
+ |      of the same length as `x` and `y`, or a column label.)
+ |      
+ |      Parameters
+ |      ----------
+ |      x : int or str
+ |          The column label or position for x points.
+ |      y : int or str
+ |          The column label or position for y points.
+ |      C : int or str, optional
+ |          The column label or position for the value of `(x, y)` point.
+ |      reduce_C_function : callable, default `np.mean`
+ |          Function of one argument that reduces all the values in a bin to
+ |          a single number (e.g. `np.mean`, `np.max`, `np.sum`, `np.std`).
+ |      gridsize : int or tuple of (int, int), default 100
+ |          The number of hexagons in the x-direction.
+ |          The corresponding number of hexagons in the y-direction is
+ |          chosen in a way that the hexagons are approximately regular.
+ |          Alternatively, gridsize can be a tuple with two elements
+ |          specifying the number of hexagons in the x-direction and the
+ |          y-direction.
+ |      **kwargs
+ |          Additional keyword arguments are documented in
+ |          :meth:`DataFrame.plot`.
+ |      
+ |      Returns
+ |      -------
+ |      matplotlib.AxesSubplot
+ |          The matplotlib ``Axes`` on which the hexbin is plotted.
+ |      
+ |      See Also
+ |      --------
+ |      DataFrame.plot : Make plots of a DataFrame.
+ |      matplotlib.pyplot.hexbin : Hexagonal binning plot using matplotlib,
+ |          the matplotlib function that is used under the hood.
+ |      
+ |      Examples
+ |      --------
+ |      The following examples are generated with random data from
+ |      a normal distribution.
+ |      
+ |      .. plot::
+ |          :context: close-figs
+ |      
+ |          &gt;&gt;&gt; n = 10000
+ |          &gt;&gt;&gt; df = pd.DataFrame({&#39;x&#39;: np.random.randn(n),
+ |          ...                    &#39;y&#39;: np.random.randn(n)})
+ |          &gt;&gt;&gt; ax = df.plot.hexbin(x=&#39;x&#39;, y=&#39;y&#39;, gridsize=20)
+ |      
+ |      The next example uses `C` and `np.sum` as `reduce_C_function`.
+ |      Note that `&#39;observations&#39;` values ranges from 1 to 5 but the result
+ |      plot shows values up to more than 25. This is because of the
+ |      `reduce_C_function`.
+ |      
+ |      .. plot::
+ |          :context: close-figs
+ |      
+ |          &gt;&gt;&gt; n = 500
+ |          &gt;&gt;&gt; df = pd.DataFrame({
+ |          ...     &#39;coord_x&#39;: np.random.uniform(-3, 3, size=n),
+ |          ...     &#39;coord_y&#39;: np.random.uniform(30, 50, size=n),
+ |          ...     &#39;observations&#39;: np.random.randint(1,5, size=n)
+ |          ...     })
+ |          &gt;&gt;&gt; ax = df.plot.hexbin(x=&#39;coord_x&#39;,
+ |          ...                     y=&#39;coord_y&#39;,
+ |          ...                     C=&#39;observations&#39;,
+ |          ...                     reduce_C_function=np.sum,
+ |          ...                     gridsize=10,
+ |          ...                     cmap=&quot;viridis&quot;)
+ |  
+ |  hist(self, by=None, bins: &#39;int&#39; = 10, **kwargs) -&gt; &#39;PlotAccessor&#39;
+ |      Draw one histogram of the DataFrame&#39;s columns.
+ |      
+ |      A histogram is a representation of the distribution of data.
+ |      This function groups the values of all given Series in the DataFrame
+ |      into bins and draws all bins in one :class:`matplotlib.axes.Axes`.
+ |      This is useful when the DataFrame&#39;s Series are in a similar scale.
+ |      
+ |      Parameters
+ |      ----------
+ |      by : str or sequence, optional
+ |          Column in the DataFrame to group by.
+ |      
+ |          .. versionchanged:: 1.4.0
+ |      
+ |             Previously, `by` is silently ignore and makes no groupings
+ |      
+ |      bins : int, default 10
+ |          Number of histogram bins to be used.
+ |      **kwargs
+ |          Additional keyword arguments are documented in
+ |          :meth:`DataFrame.plot`.
+ |      
+ |      Returns
+ |      -------
+ |      class:`matplotlib.AxesSubplot`
+ |          Return a histogram plot.
+ |      
+ |      See Also
+ |      --------
+ |      DataFrame.hist : Draw histograms per DataFrame&#39;s Series.
+ |      Series.hist : Draw a histogram with Series&#39; data.
+ |      
+ |      Examples
+ |      --------
+ |      When we roll a die 6000 times, we expect to get each value around 1000
+ |      times. But when we roll two dice and sum the result, the distribution
+ |      is going to be quite different. A histogram illustrates those
+ |      distributions.
+ |      
+ |      .. plot::
+ |          :context: close-figs
+ |      
+ |          &gt;&gt;&gt; df = pd.DataFrame(
+ |          ...     np.random.randint(1, 7, 6000),
+ |          ...     columns = [&#39;one&#39;])
+ |          &gt;&gt;&gt; df[&#39;two&#39;] = df[&#39;one&#39;] + np.random.randint(1, 7, 6000)
+ |          &gt;&gt;&gt; ax = df.plot.hist(bins=12, alpha=0.5)
+ |      
+ |      A grouped histogram can be generated by providing the parameter `by` (which
+ |      can be a column name, or a list of column names):
+ |      
+ |      .. plot::
+ |          :context: close-figs
+ |      
+ |          &gt;&gt;&gt; age_list = [8, 10, 12, 14, 72, 74, 76, 78, 20, 25, 30, 35, 60, 85]
+ |          &gt;&gt;&gt; df = pd.DataFrame({&quot;gender&quot;: list(&quot;MMMMMMMMFFFFFF&quot;), &quot;age&quot;: age_list})
+ |          &gt;&gt;&gt; ax = df.plot.hist(column=[&quot;age&quot;], by=&quot;gender&quot;, figsize=(10, 8))
+ |  
+ |  kde(self, bw_method=None, ind=None, **kwargs) -&gt; &#39;PlotAccessor&#39;
+ |      Generate Kernel Density Estimate plot using Gaussian kernels.
+ |      
+ |      In statistics, `kernel density estimation`_ (KDE) is a non-parametric
+ |      way to estimate the probability density function (PDF) of a random
+ |      variable. This function uses Gaussian kernels and includes automatic
+ |      bandwidth determination.
+ |      
+ |      .. _kernel density estimation:
+ |          https://en.wikipedia.org/wiki/Kernel_density_estimation
+ |      
+ |      Parameters
+ |      ----------
+ |      bw_method : str, scalar or callable, optional
+ |          The method used to calculate the estimator bandwidth. This can be
+ |          &#39;scott&#39;, &#39;silverman&#39;, a scalar constant or a callable.
+ |          If None (default), &#39;scott&#39; is used.
+ |          See :class:`scipy.stats.gaussian_kde` for more information.
+ |      ind : NumPy array or int, optional
+ |          Evaluation points for the estimated PDF. If None (default),
+ |          1000 equally spaced points are used. If `ind` is a NumPy array, the
+ |          KDE is evaluated at the points passed. If `ind` is an integer,
+ |          `ind` number of equally spaced points are used.
+ |      **kwargs
+ |          Additional keyword arguments are documented in
+ |          :meth:`DataFrame.plot`.
+ |      
+ |      Returns
+ |      -------
+ |      matplotlib.axes.Axes or numpy.ndarray of them
+ |      
+ |      See Also
+ |      --------
+ |      scipy.stats.gaussian_kde : Representation of a kernel-density
+ |          estimate using Gaussian kernels. This is the function used
+ |          internally to estimate the PDF.
+ |      
+ |      Examples
+ |      --------
+ |      Given a Series of points randomly sampled from an unknown
+ |      distribution, estimate its PDF using KDE with automatic
+ |      bandwidth determination and plot the results, evaluating them at
+ |      1000 equally spaced points (default):
+ |      
+ |      .. plot::
+ |          :context: close-figs
+ |      
+ |          &gt;&gt;&gt; s = pd.Series([1, 2, 2.5, 3, 3.5, 4, 5])
+ |          &gt;&gt;&gt; ax = s.plot.kde()
+ |      
+ |      A scalar bandwidth can be specified. Using a small bandwidth value can
+ |      lead to over-fitting, while using a large bandwidth value may result
+ |      in under-fitting:
+ |      
+ |      .. plot::
+ |          :context: close-figs
+ |      
+ |          &gt;&gt;&gt; ax = s.plot.kde(bw_method=0.3)
+ |      
+ |      .. plot::
+ |          :context: close-figs
+ |      
+ |          &gt;&gt;&gt; ax = s.plot.kde(bw_method=3)
+ |      
+ |      Finally, the `ind` parameter determines the evaluation points for the
+ |      plot of the estimated PDF:
+ |      
+ |      .. plot::
+ |          :context: close-figs
+ |      
+ |          &gt;&gt;&gt; ax = s.plot.kde(ind=[1, 2, 3, 4, 5])
+ |      
+ |      For DataFrame, it works in the same way:
+ |      
+ |      .. plot::
+ |          :context: close-figs
+ |      
+ |          &gt;&gt;&gt; df = pd.DataFrame({
+ |          ...     &#39;x&#39;: [1, 2, 2.5, 3, 3.5, 4, 5],
+ |          ...     &#39;y&#39;: [4, 4, 4.5, 5, 5.5, 6, 6],
+ |          ... })
+ |          &gt;&gt;&gt; ax = df.plot.kde()
+ |      
+ |      A scalar bandwidth can be specified. Using a small bandwidth value can
+ |      lead to over-fitting, while using a large bandwidth value may result
+ |      in under-fitting:
+ |      
+ |      .. plot::
+ |          :context: close-figs
+ |      
+ |          &gt;&gt;&gt; ax = df.plot.kde(bw_method=0.3)
+ |      
+ |      .. plot::
+ |          :context: close-figs
+ |      
+ |          &gt;&gt;&gt; ax = df.plot.kde(bw_method=3)
+ |      
+ |      Finally, the `ind` parameter determines the evaluation points for the
+ |      plot of the estimated PDF:
+ |      
+ |      .. plot::
+ |          :context: close-figs
+ |      
+ |          &gt;&gt;&gt; ax = df.plot.kde(ind=[1, 2, 3, 4, 5, 6])
+ |  
+ |  line(self, x=None, y=None, **kwargs) -&gt; &#39;PlotAccessor&#39;
+ |      Plot Series or DataFrame as lines.
+ |      
+ |      This function is useful to plot lines using DataFrame&#39;s values
+ |      as coordinates.
+ |      
+ |      Parameters
+ |      ----------
+ |      x : label or position, optional
+ |          Allows plotting of one column versus another. If not specified,
+ |          the index of the DataFrame is used.
+ |      y : label or position, optional
+ |          Allows plotting of one column versus another. If not specified,
+ |          all numerical columns are used.
+ |      color : str, array-like, or dict, optional
+ |          The color for each of the DataFrame&#39;s columns. Possible values are:
+ |      
+ |          - A single color string referred to by name, RGB or RGBA code,
+ |              for instance &#39;red&#39; or &#39;#a98d19&#39;.
+ |      
+ |          - A sequence of color strings referred to by name, RGB or RGBA
+ |              code, which will be used for each column recursively. For
+ |              instance [&#39;green&#39;,&#39;yellow&#39;] each column&#39;s line will be filled in
+ |              green or yellow, alternatively. If there is only a single column to
+ |              be plotted, then only the first color from the color list will be
+ |              used.
+ |      
+ |          - A dict of the form {column name : color}, so that each column will be
+ |              colored accordingly. For example, if your columns are called `a` and
+ |              `b`, then passing {&#39;a&#39;: &#39;green&#39;, &#39;b&#39;: &#39;red&#39;} will color lines for
+ |              column `a` in green and lines for column `b` in red.
+ |      
+ |          .. versionadded:: 1.1.0
+ |      
+ |      **kwargs
+ |          Additional keyword arguments are documented in
+ |          :meth:`DataFrame.plot`.
+ |      
+ |      Returns
+ |      -------
+ |      matplotlib.axes.Axes or np.ndarray of them
+ |          An ndarray is returned with one :class:`matplotlib.axes.Axes`
+ |          per column when ``subplots=True``.
+ |      
+ |              See Also
+ |              --------
+ |              matplotlib.pyplot.plot : Plot y versus x as lines and/or markers.
+ |      
+ |              Examples
+ |              --------
+ |      
+ |              .. plot::
+ |                  :context: close-figs
+ |      
+ |                  &gt;&gt;&gt; s = pd.Series([1, 3, 2])
+ |                  &gt;&gt;&gt; s.plot.line()
+ |                  &lt;AxesSubplot: ylabel=&#39;Density&#39;&gt;
+ |      
+ |              .. plot::
+ |                  :context: close-figs
+ |      
+ |                  The following example shows the populations for some animals
+ |                  over the years.
+ |      
+ |                  &gt;&gt;&gt; df = pd.DataFrame({
+ |                  ...    &#39;pig&#39;: [20, 18, 489, 675, 1776],
+ |                  ...    &#39;horse&#39;: [4, 25, 281, 600, 1900]
+ |                  ...    }, index=[1990, 1997, 2003, 2009, 2014])
+ |                  &gt;&gt;&gt; lines = df.plot.line()
+ |      
+ |              .. plot::
+ |                 :context: close-figs
+ |      
+ |                 An example with subplots, so an array of axes is returned.
+ |      
+ |                 &gt;&gt;&gt; axes = df.plot.line(subplots=True)
+ |                 &gt;&gt;&gt; type(axes)
+ |                 &lt;class &#39;numpy.ndarray&#39;&gt;
+ |      
+ |              .. plot::
+ |                 :context: close-figs
+ |      
+ |                 Let&#39;s repeat the same example, but specifying colors for
+ |                 each column (in this case, for each animal).
+ |      
+ |                 &gt;&gt;&gt; axes = df.plot.line(
+ |                 ...     subplots=True, color={&quot;pig&quot;: &quot;pink&quot;, &quot;horse&quot;: &quot;#742802&quot;}
+ |                 ... )
+ |      
+ |              .. plot::
+ |                  :context: close-figs
+ |      
+ |                  The following example shows the relationship between both
+ |                  populations.
+ |      
+ |                  &gt;&gt;&gt; lines = df.plot.line(x=&#39;pig&#39;, y=&#39;horse&#39;)
+ |  
+ |  pie(self, **kwargs) -&gt; &#39;PlotAccessor&#39;
+ |      Generate a pie plot.
+ |      
+ |      A pie plot is a proportional representation of the numerical data in a
+ |      column. This function wraps :meth:`matplotlib.pyplot.pie` for the
+ |      specified column. If no column reference is passed and
+ |      ``subplots=True`` a pie plot is drawn for each numerical column
+ |      independently.
+ |      
+ |      Parameters
+ |      ----------
+ |      y : int or label, optional
+ |          Label or position of the column to plot.
+ |          If not provided, ``subplots=True`` argument must be passed.
+ |      **kwargs
+ |          Keyword arguments to pass on to :meth:`DataFrame.plot`.
+ |      
+ |      Returns
+ |      -------
+ |      matplotlib.axes.Axes or np.ndarray of them
+ |          A NumPy array is returned when `subplots` is True.
+ |      
+ |      See Also
+ |      --------
+ |      Series.plot.pie : Generate a pie plot for a Series.
+ |      DataFrame.plot : Make plots of a DataFrame.
+ |      
+ |      Examples
+ |      --------
+ |      In the example below we have a DataFrame with the information about
+ |      planet&#39;s mass and radius. We pass the &#39;mass&#39; column to the
+ |      pie function to get a pie plot.
+ |      
+ |      .. plot::
+ |          :context: close-figs
+ |      
+ |          &gt;&gt;&gt; df = pd.DataFrame({&#39;mass&#39;: [0.330, 4.87 , 5.97],
+ |          ...                    &#39;radius&#39;: [2439.7, 6051.8, 6378.1]},
+ |          ...                   index=[&#39;Mercury&#39;, &#39;Venus&#39;, &#39;Earth&#39;])
+ |          &gt;&gt;&gt; plot = df.plot.pie(y=&#39;mass&#39;, figsize=(5, 5))
+ |      
+ |      .. plot::
+ |          :context: close-figs
+ |      
+ |          &gt;&gt;&gt; plot = df.plot.pie(subplots=True, figsize=(11, 6))
+ |  
+ |  scatter(self, x, y, s=None, c=None, **kwargs) -&gt; &#39;PlotAccessor&#39;
+ |      Create a scatter plot with varying marker point size and color.
+ |      
+ |      The coordinates of each point are defined by two dataframe columns and
+ |      filled circles are used to represent each point. This kind of plot is
+ |      useful to see complex correlations between two variables. Points could
+ |      be for instance natural 2D coordinates like longitude and latitude in
+ |      a map or, in general, any pair of metrics that can be plotted against
+ |      each other.
+ |      
+ |      Parameters
+ |      ----------
+ |      x : int or str
+ |          The column name or column position to be used as horizontal
+ |          coordinates for each point.
+ |      y : int or str
+ |          The column name or column position to be used as vertical
+ |          coordinates for each point.
+ |      s : str, scalar or array-like, optional
+ |          The size of each point. Possible values are:
+ |      
+ |          - A string with the name of the column to be used for marker&#39;s size.
+ |      
+ |          - A single scalar so all points have the same size.
+ |      
+ |          - A sequence of scalars, which will be used for each point&#39;s size
+ |            recursively. For instance, when passing [2,14] all points size
+ |            will be either 2 or 14, alternatively.
+ |      
+ |            .. versionchanged:: 1.1.0
+ |      
+ |      c : str, int or array-like, optional
+ |          The color of each point. Possible values are:
+ |      
+ |          - A single color string referred to by name, RGB or RGBA code,
+ |            for instance &#39;red&#39; or &#39;#a98d19&#39;.
+ |      
+ |          - A sequence of color strings referred to by name, RGB or RGBA
+ |            code, which will be used for each point&#39;s color recursively. For
+ |            instance [&#39;green&#39;,&#39;yellow&#39;] all points will be filled in green or
+ |            yellow, alternatively.
+ |      
+ |          - A column name or position whose values will be used to color the
+ |            marker points according to a colormap.
+ |      
+ |      **kwargs
+ |          Keyword arguments to pass on to :meth:`DataFrame.plot`.
+ |      
+ |      Returns
+ |      -------
+ |      :class:`matplotlib.axes.Axes` or numpy.ndarray of them
+ |      
+ |      See Also
+ |      --------
+ |      matplotlib.pyplot.scatter : Scatter plot using multiple input data
+ |          formats.
+ |      
+ |      Examples
+ |      --------
+ |      Let&#39;s see how to draw a scatter plot using coordinates from the values
+ |      in a DataFrame&#39;s columns.
+ |      
+ |      .. plot::
+ |          :context: close-figs
+ |      
+ |          &gt;&gt;&gt; df = pd.DataFrame([[5.1, 3.5, 0], [4.9, 3.0, 0], [7.0, 3.2, 1],
+ |          ...                    [6.4, 3.2, 1], [5.9, 3.0, 2]],
+ |          ...                   columns=[&#39;length&#39;, &#39;width&#39;, &#39;species&#39;])
+ |          &gt;&gt;&gt; ax1 = df.plot.scatter(x=&#39;length&#39;,
+ |          ...                       y=&#39;width&#39;,
+ |          ...                       c=&#39;DarkBlue&#39;)
+ |      
+ |      And now with the color determined by a column as well.
+ |      
+ |      .. plot::
+ |          :context: close-figs
+ |      
+ |          &gt;&gt;&gt; ax2 = df.plot.scatter(x=&#39;length&#39;,
+ |          ...                       y=&#39;width&#39;,
+ |          ...                       c=&#39;species&#39;,
+ |          ...                       colormap=&#39;viridis&#39;)
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from pandas.core.base.PandasObject:
+ |  
+ |  __repr__(self) -&gt; &#39;str&#39;
+ |      Return a string representation for a particular object.
+ |  
+ |  __sizeof__(self) -&gt; &#39;int&#39;
+ |      Generates the total memory usage for an object that returns
+ |      either a value or Series of values
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes inherited from pandas.core.base.PandasObject:
+ |  
+ |  __annotations__ = {&#39;_cache&#39;: &#39;dict[str, Any]&#39;}
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from pandas.core.accessor.DirNamesMixin:
+ |  
+ |  __dir__(self) -&gt; &#39;list[str]&#39;
+ |      Provide method name lookup and completion.
+ |      
+ |      Notes
+ |      -----
+ |      Only provide &#39;public&#39; methods.
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from pandas.core.accessor.DirNamesMixin:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">apple</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(8640, 5)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#apple.loc[&#39;2014-12-9&#39;:][&#39;Close&#39;].plot()</span>
+<span class="n">apple</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">8000</span><span class="p">,</span><span class="mi">8640</span><span class="p">],</span><span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">120</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">DateParseError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="nn">File ~/mambaforge/envs/deconvolution-napari-env/lib/python3.9/site-packages/pandas/core/indexes/datetimes.py:557,</span> in <span class="ni">DatetimeIndex.get_loc</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">    </span><span class="mi">556</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">557</span>     <span class="n">parsed</span><span class="p">,</span> <span class="n">reso</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_with_reso</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">558</span> <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">pytz</span><span class="o">.</span><span class="n">NonExistentTimeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+
+<span class="nn">File ~/mambaforge/envs/deconvolution-napari-env/lib/python3.9/site-packages/pandas/core/indexes/datetimes.py:513,</span> in <span class="ni">DatetimeIndex._parse_with_reso</span><span class="nt">(self, label)</span>
+<span class="g g-Whitespace">    </span><span class="mi">512</span> <span class="k">def</span> <span class="nf">_parse_with_reso</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">513</span>     <span class="n">parsed</span><span class="p">,</span> <span class="n">reso</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_parse_with_reso</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">515</span>     <span class="n">parsed</span> <span class="o">=</span> <span class="n">Timestamp</span><span class="p">(</span><span class="n">parsed</span><span class="p">)</span>
+
+<span class="nn">File ~/mambaforge/envs/deconvolution-napari-env/lib/python3.9/site-packages/pandas/core/indexes/datetimelike.py:267,</span> in <span class="ni">DatetimeIndexOpsMixin._parse_with_reso</span><span class="nt">(self, label)</span>
+<span class="g g-Whitespace">    </span><span class="mi">265</span>     <span class="n">label</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">267</span> <span class="n">parsed</span><span class="p">,</span> <span class="n">reso_str</span> <span class="o">=</span> <span class="n">parsing</span><span class="o">.</span><span class="n">parse_datetime_string_with_reso</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">freqstr</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">268</span> <span class="n">reso</span> <span class="o">=</span> <span class="n">Resolution</span><span class="o">.</span><span class="n">from_attrname</span><span class="p">(</span><span class="n">reso_str</span><span class="p">)</span>
+
+<span class="nn">File ~/mambaforge/envs/deconvolution-napari-env/lib/python3.9/site-packages/pandas/_libs/tslibs/parsing.pyx:435,</span> in <span class="ni">pandas._libs.tslibs.parsing.parse_datetime_string_with_reso</span><span class="nt">()</span>
+
+<span class="nn">File ~/mambaforge/envs/deconvolution-napari-env/lib/python3.9/site-packages/pandas/_libs/tslibs/parsing.pyx:658,</span> in <span class="ni">pandas._libs.tslibs.parsing.dateutil_parse</span><span class="nt">()</span>
+
+<span class="ne">DateParseError</span>: Unknown datetime string format, unable to parse: Close
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">59</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#apple.loc[&#39;2014-12-9&#39;:][&#39;Close&#39;].plot()</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">apple</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">8000</span><span class="p">,</span><span class="mi">8640</span><span class="p">],</span><span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">120</span><span class="p">])</span>
+
+<span class="nn">File ~/mambaforge/envs/deconvolution-napari-env/lib/python3.9/site-packages/pandas/core/indexing.py:1103,</span> in <span class="ni">_LocationIndexer.__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1100</span> <span class="n">axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span> <span class="ow">or</span> <span class="mi">0</span>
+<span class="g g-Whitespace">   </span><span class="mi">1102</span> <span class="n">maybe_callable</span> <span class="o">=</span> <span class="n">com</span><span class="o">.</span><span class="n">apply_if_callable</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1103</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_axis</span><span class="p">(</span><span class="n">maybe_callable</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+
+<span class="nn">File ~/mambaforge/envs/deconvolution-napari-env/lib/python3.9/site-packages/pandas/core/indexing.py:1343,</span> in <span class="ni">_LocIndexer._getitem_axis</span><span class="nt">(self, key, axis)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1341</span> <span class="c1"># fall thru to straight lookup</span>
+<span class="g g-Whitespace">   </span><span class="mi">1342</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_key</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1343</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_label</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+
+<span class="nn">File ~/mambaforge/envs/deconvolution-napari-env/lib/python3.9/site-packages/pandas/core/indexing.py:1293,</span> in <span class="ni">_LocIndexer._get_label</span><span class="nt">(self, label, axis)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1291</span> <span class="k">def</span> <span class="nf">_get_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="n">AxisInt</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1292</span>     <span class="c1"># GH#5567 this will fail if the label is not present in the axis.</span>
+<span class="ne">-&gt; </span><span class="mi">1293</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+
+<span class="nn">File ~/mambaforge/envs/deconvolution-napari-env/lib/python3.9/site-packages/pandas/core/generic.py:4095,</span> in <span class="ni">NDFrame.xs</span><span class="nt">(self, key, axis, level, drop_level)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4093</span>             <span class="n">new_index</span> <span class="o">=</span> <span class="n">index</span><span class="p">[</span><span class="n">loc</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">4094</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">4095</span>     <span class="n">loc</span> <span class="o">=</span> <span class="n">index</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4097</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">4098</span>         <span class="k">if</span> <span class="n">loc</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">:</span>
+
+<span class="nn">File ~/mambaforge/envs/deconvolution-napari-env/lib/python3.9/site-packages/pandas/core/indexes/datetimes.py:559,</span> in <span class="ni">DatetimeIndex.get_loc</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">    </span><span class="mi">557</span>     <span class="n">parsed</span><span class="p">,</span> <span class="n">reso</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_with_reso</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">558</span> <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="n">pytz</span><span class="o">.</span><span class="n">NonExistentTimeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">559</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+<span class="g g-Whitespace">    </span><span class="mi">560</span> <span class="bp">self</span><span class="o">.</span><span class="n">_disallow_mismatched_indexing</span><span class="p">(</span><span class="n">parsed</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">562</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_can_partial_date_slice</span><span class="p">(</span><span class="n">reso</span><span class="p">):</span>
+
+<span class="ne">KeyError</span>: &#39;Close&#39;
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 
