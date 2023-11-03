@@ -17,8 +17,9 @@ You will group this data in an attempt to identify how running times changed for
 
 You will need the following datasets, men2013.txt, men2015.txt, men2018.txt, mean2019.txt, women2013.txt, women2015.txt, women2018.txt, and women2019.txt.  
 
-The datasets can be found in the class repository under the 20_data_wrangling section.   
+The datasets can be found in the class repository under the 20_data_wrangling section. 
 
+0. In our class we noticed that trying ```apple.loc['2012-12-7':'2012-12-10']``` did not work because the exact date was not present in the index.  This could be annoying if trying to get results from one approximate date to another.  is there a way to bypass this error. 
 1.  In the example we use ```pd.read_fwf``` to open data.  What is the ```pd.read_fwf``` function??  Why do we use it in this case instead of ```pd.read_csv```??  
 2.  Why do we pass an extra parameter called ```name``` (hint for help on the ```pd.read_fwf``` function call ```help(pd.read_fwf```, it should list all the optional parameters)  
 3.  Why do we call ```.head(numRunnersToAnalyze()``` at the end of each ```read_fwf``` call??  (hint try changing the parameter numRunnersToAnalyze to 10 and rerun the notebook)
