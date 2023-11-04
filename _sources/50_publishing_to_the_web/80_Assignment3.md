@@ -3,7 +3,7 @@
 Vladimir Guerrero Jr. greatest hitting prospect ever, one of the great age 22 seasons.  However at age 24 he is somewhat average... what has happened?  We will investigate!
 
 
-1. In the intro section, section 30_CloneFromGitHub.md has an incorrect link to the class repository (it is linked to an old version of the class).  Fix this link, push to your forked copy of the class repository then open a pull request to get it fixed in the original version of the repo [here](https://github.com/True-North-Intelligent-Algorithms/intro-to-data-analysis)  
+1. Create a new repository on github for your personal work.  Enable  
 
 2. Install the pybaseball module (see)[https://github.com/jldbc/pybaseball]
 
@@ -16,7 +16,7 @@ pip install pybaseball
 3.  Create some python notebooks to show what has happened to to Vladimir.  Notebooks should be a combination of code and markdown blocks that tell a story.  Potentially create
 
 * histogram of batted ball distance in 2021, 2022, and 2023
-* same for Aaron Judge in 2021, 2022, and 2023
+* same for Aaron Judge and Matt Olson in 2021, 2022, and 2023
 * think of how to deal with different numbers of games played and opportunities (normalize data)
 * histograms of exit velocity, same players same years.
 
