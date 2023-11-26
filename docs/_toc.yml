@@ -47,6 +47,19 @@ parts:
       - file: 50_publishing_to_the_web/20_Github_Pages
       - file: 50_publishing_to_the_web/30_Quarto
       - file: 50_publishing_to_the_web/80_Assignment3
+  - file: 60_Statistics/08_Module2
+    sections:
+      - file: 60_Statistics/10_Introduction
+      - file: 60_Statistics/20_Statistics
+      - file: 60_Statistics/21_DescriptiveStatistics.ipynb
+      - file: 60_Statistics/22_DistributionConfidence
+      - file: 60_Statistics/30_HypothesisTesting
+      - file: 60_Statistics/31_HypothesisTestingInPractice
+      - file: 60_Statistics/32_HumanBodyTemp.ipynb
+      - file: 60_Statistics/33_Ind. T-test Simple.ipynb
+      - file: 60_Statistics/34_CovidVaccines.ipynb
+      - file: 60_Statistics/37_Ind. T-Test Baseball Teams.ipynb
+      - file: 60_Statistics/39_NormalDistributionAndConfidenceInterval.ipynb
   - file: 90_notes/10_notes
     sections:
     - file: 90_notes/20_notes
