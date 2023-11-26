@@ -187,6 +187,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="15_Rest_With_Python.html">Web API 2015</a></li>
 <li class="toctree-l2"><a class="reference internal" href="20_Web_api_2023.html">Web API 2023</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Example Statcast baseball data API</a></li>
+
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../40_data_plotting/10_Introduction.html">Module 4 Data Plotting</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -210,6 +211,26 @@ jupyter: python3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../50_publishing_to_the_web/20_Github_Pages.html">GitHub Pages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../50_publishing_to_the_web/30_Quarto.html">Quarto</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../50_publishing_to_the_web/80_Assignment3.html">Assignment 3 the mystery Vladimir Guerrero Jr.</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../60_Statistics/08_Module2.html">Module 2 Statistics</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../60_Statistics/10_Introduction.html">Why Statistics ?</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../60_Statistics/20_Statistics.html">Why Statistics</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../60_Statistics/21_DescriptiveStatistics.html">Descriptive Statistics in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../60_Statistics/22_DistributionConfidence.html">Distributions and Confidence Intervals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../60_Statistics/30_HypothesisTesting.html">Hypothesis Testing</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../60_Statistics/31_HypothesisTestingInPractice.html">Hypothesis Testing In Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../60_Statistics/32_HumanBodyTemp.html">Calculating human body temperature stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../60_Statistics/37_Ind.%20T-Test%20Baseball%20Teams.html">Independant T-Test Baseball Teams</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../90_notes/20_notes.html">October 7th Plan</a></li>
@@ -384,7 +405,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -400,6 +423,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Example Statcast baseball data API</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#look-at-what-columns-of-data-are-available">Look at what columns of data are available</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -416,6 +449,13 @@ document.write(`
 <p>pip install pybaseball</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pybaseball</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find Vladimir Guerrero Jrs player id</span>
 <span class="kn">from</span> <span class="nn">pybaseball</span> <span class="kn">import</span>  <span class="n">playerid_lookup</span>
 <span class="kn">from</span> <span class="nn">pybaseball</span> <span class="kn">import</span>  <span class="n">statcast_pitcher</span><span class="p">,</span> <span class="n">statcast_batter</span>
@@ -424,6 +464,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gathering player lookup table. This may take a moment.
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -482,16 +525,18 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># His MLBAM ID is 665489 so we feed that as the player_id argument to the following function </span>
-<span class="n">guerrero_stats</span> <span class="o">=</span> <span class="n">statcast_batter</span><span class="p">(</span><span class="s1">&#39;2023-03-28&#39;</span><span class="p">,</span> <span class="s1">&#39;2023-11-01&#39;</span><span class="p">,</span> <span class="mi">665489</span><span class="p">)</span>
+<span class="n">guerrero_stats</span> <span class="o">=</span> <span class="n">statcast_batter</span><span class="p">(</span><span class="s1">&#39;2021-03-28&#39;</span><span class="p">,</span> <span class="s1">&#39;2023-11-01&#39;</span><span class="p">,</span> <span class="mi">665489</span><span class="p">)</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">guerrero_stats</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">guerrero_stats</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">guerrero_stats</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">guerrero_stats</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gathering Player Data
-(2478, 92)
+&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+(7887, 92)
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -537,174 +582,190 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>SI</td>
-      <td>2023-10-04</td>
-      <td>95.1</td>
-      <td>-0.67</td>
-      <td>5.51</td>
+      <th>7882</th>
+      <td>SL</td>
+      <td>2021-03-28</td>
+      <td>84.5</td>
+      <td>2.82</td>
+      <td>6.53</td>
       <td>Guerrero Jr., Vladimir</td>
       <td>665489</td>
-      <td>543243</td>
-      <td>walk</td>
-      <td>ball</td>
-      <td>...</td>
-      <td>2</td>
-      <td>0</td>
-      <td>2</td>
-      <td>0</td>
-      <td>2</td>
-      <td>Strategic</td>
-      <td>Standard</td>
-      <td>201.0</td>
-      <td>-0.026</td>
-      <td>0.217</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>ST</td>
-      <td>2023-10-04</td>
-      <td>84.2</td>
-      <td>-0.67</td>
-      <td>5.48</td>
-      <td>Guerrero Jr., Vladimir</td>
-      <td>665489</td>
-      <td>543243</td>
+      <td>669373</td>
       <td>NaN</td>
       <td>ball</td>
       <td>...</td>
-      <td>2</td>
-      <td>0</td>
-      <td>2</td>
-      <td>0</td>
-      <td>2</td>
-      <td>Strategic</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
       <td>Standard</td>
-      <td>44.0</td>
+      <td>Standard</td>
+      <td>271.0</td>
       <td>0.000</td>
-      <td>0.055</td>
+      <td>NaN</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>ST</td>
-      <td>2023-10-04</td>
-      <td>84.6</td>
-      <td>-0.76</td>
-      <td>5.53</td>
+      <th>7883</th>
+      <td>FS</td>
+      <td>2021-03-28</td>
+      <td>87.6</td>
+      <td>2.68</td>
+      <td>6.60</td>
       <td>Guerrero Jr., Vladimir</td>
       <td>665489</td>
-      <td>543243</td>
+      <td>669373</td>
+      <td>strikeout</td>
+      <td>swinging_strike</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Infield shade</td>
+      <td>Standard</td>
+      <td>133.0</td>
+      <td>-0.009</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7884</th>
+      <td>FC</td>
+      <td>2021-03-28</td>
+      <td>95.3</td>
+      <td>3.25</td>
+      <td>6.45</td>
+      <td>Guerrero Jr., Vladimir</td>
+      <td>665489</td>
+      <td>669373</td>
       <td>NaN</td>
       <td>foul</td>
       <td>...</td>
-      <td>2</td>
       <td>0</td>
-      <td>2</td>
       <td>0</td>
-      <td>2</td>
-      <td>Strategic</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
       <td>Standard</td>
-      <td>40.0</td>
+      <td>Standard</td>
+      <td>155.0</td>
       <td>0.000</td>
-      <td>0.000</td>
+      <td>NaN</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>7885</th>
       <td>FF</td>
-      <td>2023-10-04</td>
-      <td>93.2</td>
-      <td>-0.68</td>
-      <td>5.54</td>
+      <td>2021-03-28</td>
+      <td>93.8</td>
+      <td>3.19</td>
+      <td>6.45</td>
       <td>Guerrero Jr., Vladimir</td>
       <td>665489</td>
-      <td>543243</td>
-      <td>NaN</td>
-      <td>foul</td>
-      <td>...</td>
-      <td>2</td>
-      <td>0</td>
-      <td>2</td>
-      <td>0</td>
-      <td>2</td>
-      <td>Strategic</td>
-      <td>Standard</td>
-      <td>195.0</td>
-      <td>0.000</td>
-      <td>-0.053</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>ST</td>
-      <td>2023-10-04</td>
-      <td>84.0</td>
-      <td>-0.85</td>
-      <td>5.50</td>
-      <td>Guerrero Jr., Vladimir</td>
-      <td>665489</td>
-      <td>543243</td>
+      <td>669373</td>
       <td>NaN</td>
       <td>called_strike</td>
       <td>...</td>
-      <td>2</td>
       <td>0</td>
-      <td>2</td>
       <td>0</td>
-      <td>2</td>
-      <td>Strategic</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
       <td>Standard</td>
-      <td>42.0</td>
+      <td>Standard</td>
+      <td>144.0</td>
       <td>0.000</td>
-      <td>-0.043</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7886</th>
+      <td>KC</td>
+      <td>2021-03-28</td>
+      <td>75.6</td>
+      <td>2.61</td>
+      <td>6.68</td>
+      <td>Guerrero Jr., Vladimir</td>
+      <td>665489</td>
+      <td>669373</td>
+      <td>NaN</td>
+      <td>ball</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Standard</td>
+      <td>Standard</td>
+      <td>334.0</td>
+      <td>0.000</td>
+      <td>NaN</td>
     </tr>
   </tbody>
 </table>
 <p>5 rows × 92 columns</p>
 </div></div></div>
 </div>
+</section>
+<section id="look-at-what-columns-of-data-are-available">
+<h1>Look at what columns of data are available<a class="headerlink" href="#look-at-what-columns-of-data-are-available" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">guerrero_stats</span><span class="p">[</span><span class="s1">&#39;events&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">guerrero_stats</span><span class="o">.</span><span class="n">columns</span>  
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>events
-field_out                    299
-single                       104
-strikeout                     99
-walk                          64
-double                        31
-home_run                      26
-grounded_into_double_play     23
-force_out                     19
-hit_by_pitch                   9
-field_error                    6
-sac_fly                        4
-fielders_choice_out            1
-double_play                    1
-Name: count, dtype: int64
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;pitch_type&#39;, &#39;game_date&#39;, &#39;release_speed&#39;, &#39;release_pos_x&#39;,
+       &#39;release_pos_z&#39;, &#39;player_name&#39;, &#39;batter&#39;, &#39;pitcher&#39;, &#39;events&#39;,
+       &#39;description&#39;, &#39;spin_dir&#39;, &#39;spin_rate_deprecated&#39;,
+       &#39;break_angle_deprecated&#39;, &#39;break_length_deprecated&#39;, &#39;zone&#39;, &#39;des&#39;,
+       &#39;game_type&#39;, &#39;stand&#39;, &#39;p_throws&#39;, &#39;home_team&#39;, &#39;away_team&#39;, &#39;type&#39;,
+       &#39;hit_location&#39;, &#39;bb_type&#39;, &#39;balls&#39;, &#39;strikes&#39;, &#39;game_year&#39;, &#39;pfx_x&#39;,
+       &#39;pfx_z&#39;, &#39;plate_x&#39;, &#39;plate_z&#39;, &#39;on_3b&#39;, &#39;on_2b&#39;, &#39;on_1b&#39;,
+       &#39;outs_when_up&#39;, &#39;inning&#39;, &#39;inning_topbot&#39;, &#39;hc_x&#39;, &#39;hc_y&#39;,
+       &#39;tfs_deprecated&#39;, &#39;tfs_zulu_deprecated&#39;, &#39;fielder_2&#39;, &#39;umpire&#39;, &#39;sv_id&#39;,
+       &#39;vx0&#39;, &#39;vy0&#39;, &#39;vz0&#39;, &#39;ax&#39;, &#39;ay&#39;, &#39;az&#39;, &#39;sz_top&#39;, &#39;sz_bot&#39;,
+       &#39;hit_distance_sc&#39;, &#39;launch_speed&#39;, &#39;launch_angle&#39;, &#39;effective_speed&#39;,
+       &#39;release_spin_rate&#39;, &#39;release_extension&#39;, &#39;game_pk&#39;, &#39;pitcher.1&#39;,
+       &#39;fielder_2.1&#39;, &#39;fielder_3&#39;, &#39;fielder_4&#39;, &#39;fielder_5&#39;, &#39;fielder_6&#39;,
+       &#39;fielder_7&#39;, &#39;fielder_8&#39;, &#39;fielder_9&#39;, &#39;release_pos_y&#39;,
+       &#39;estimated_ba_using_speedangle&#39;, &#39;estimated_woba_using_speedangle&#39;,
+       &#39;woba_value&#39;, &#39;woba_denom&#39;, &#39;babip_value&#39;, &#39;iso_value&#39;,
+       &#39;launch_speed_angle&#39;, &#39;at_bat_number&#39;, &#39;pitch_number&#39;, &#39;pitch_name&#39;,
+       &#39;home_score&#39;, &#39;away_score&#39;, &#39;bat_score&#39;, &#39;fld_score&#39;, &#39;post_away_score&#39;,
+       &#39;post_home_score&#39;, &#39;post_bat_score&#39;, &#39;post_fld_score&#39;,
+       &#39;if_fielding_alignment&#39;, &#39;of_fielding_alignment&#39;, &#39;spin_axis&#39;,
+       &#39;delta_home_win_exp&#39;, &#39;delta_run_exp&#39;],
+      dtype=&#39;object&#39;)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">guerrero_stats</span><span class="o">.</span><span class="n">columns</span>  
-<span class="n">guerrero_stats</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">guerrero_stats</span><span class="o">=</span><span class="n">guerrero_stats</span><span class="p">[</span><span class="n">guerrero_stats</span><span class="p">[</span><span class="s1">&#39;game_type&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;R&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">guerrero_stats</span><span class="o">.</span><span class="n">description</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>description
-ball                       826
-hit_into_play              514
-foul                       447
-called_strike              321
-swinging_strike            253
-blocked_ball                77
-foul_tip                    21
-swinging_strike_blocked     10
-hit_by_pitch                 9
+ball                       2585
+hit_into_play              1528
+foul                       1255
+called_strike              1005
+swinging_strike             824
+blocked_ball                223
+foul_tip                     70
+swinging_strike_blocked      35
+hit_by_pitch                 21
 Name: count, dtype: int64
 </pre></div>
 </div>
@@ -761,129 +822,350 @@ Name: count, dtype: int64
   </thead>
   <tbody>
     <tr>
-      <th>7</th>
-      <td>FF</td>
-      <td>2023-10-04</td>
-      <td>93.2</td>
-      <td>-0.80</td>
-      <td>5.50</td>
+      <th>34</th>
+      <td>CH</td>
+      <td>2023-09-30</td>
+      <td>83.1</td>
+      <td>0.31</td>
+      <td>6.44</td>
       <td>Guerrero Jr., Vladimir</td>
       <td>665489</td>
-      <td>543243</td>
+      <td>606965</td>
       <td>field_out</td>
       <td>hit_into_play</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>7</td>
+      <td>7</td>
+      <td>4</td>
+      <td>4</td>
+      <td>7</td>
+      <td>Infield shade</td>
       <td>Standard</td>
-      <td>Standard</td>
-      <td>195.0</td>
-      <td>0.018</td>
-      <td>-0.235</td>
+      <td>231.0</td>
+      <td>-0.043</td>
+      <td>-0.239</td>
     </tr>
     <tr>
-      <th>10</th>
-      <td>FF</td>
-      <td>2023-10-04</td>
-      <td>90.9</td>
-      <td>-0.91</td>
-      <td>5.53</td>
+      <th>45</th>
+      <td>FC</td>
+      <td>2023-09-30</td>
+      <td>88.4</td>
+      <td>-0.85</td>
+      <td>6.16</td>
       <td>Guerrero Jr., Vladimir</td>
       <td>665489</td>
-      <td>543243</td>
+      <td>596112</td>
       <td>field_out</td>
       <td>hit_into_play</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
+      <td>4</td>
       <td>Standard</td>
       <td>Standard</td>
-      <td>185.0</td>
-      <td>0.028</td>
-      <td>-0.303</td>
+      <td>128.0</td>
+      <td>-0.020</td>
+      <td>-0.106</td>
     </tr>
     <tr>
-      <th>11</th>
-      <td>FF</td>
-      <td>2023-10-04</td>
-      <td>95.9</td>
-      <td>-0.81</td>
-      <td>5.51</td>
+      <th>46</th>
+      <td>FC</td>
+      <td>2023-09-29</td>
+      <td>89.2</td>
+      <td>-2.70</td>
+      <td>5.36</td>
       <td>Guerrero Jr., Vladimir</td>
       <td>665489</td>
-      <td>643377</td>
-      <td>field_out</td>
+      <td>541640</td>
+      <td>double</td>
       <td>hit_into_play</td>
       <td>...</td>
-      <td>2</td>
-      <td>0</td>
-      <td>2</td>
-      <td>0</td>
-      <td>2</td>
+      <td>4</td>
+      <td>4</td>
+      <td>8</td>
+      <td>8</td>
+      <td>4</td>
       <td>Standard</td>
       <td>Standard</td>
-      <td>207.0</td>
-      <td>0.036</td>
-      <td>-0.396</td>
+      <td>198.0</td>
+      <td>0.011</td>
+      <td>0.533</td>
     </tr>
     <tr>
-      <th>16</th>
+      <th>55</th>
       <td>ST</td>
-      <td>2023-10-03</td>
-      <td>84.4</td>
-      <td>-1.90</td>
-      <td>5.43</td>
+      <td>2023-09-29</td>
+      <td>80.2</td>
+      <td>-0.90</td>
+      <td>6.08</td>
       <td>Guerrero Jr., Vladimir</td>
       <td>665489</td>
-      <td>641154</td>
-      <td>field_out</td>
+      <td>641793</td>
+      <td>single</td>
       <td>hit_into_play</td>
       <td>...</td>
-      <td>3</td>
       <td>0</td>
-      <td>3</td>
       <td>0</td>
-      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Infield shade</td>
       <td>Standard</td>
-      <td>Standard</td>
-      <td>41.0</td>
-      <td>0.023</td>
-      <td>-0.228</td>
+      <td>47.0</td>
+      <td>0.032</td>
+      <td>0.453</td>
     </tr>
     <tr>
-      <th>19</th>
+      <th>59</th>
       <td>FF</td>
-      <td>2023-10-03</td>
-      <td>95.6</td>
-      <td>-1.64</td>
-      <td>5.66</td>
+      <td>2023-09-29</td>
+      <td>97.3</td>
+      <td>-1.43</td>
+      <td>6.14</td>
       <td>Guerrero Jr., Vladimir</td>
       <td>665489</td>
-      <td>641154</td>
-      <td>field_out</td>
+      <td>671737</td>
+      <td>double</td>
       <td>hit_into_play</td>
       <td>...</td>
-      <td>3</td>
-      <td>0</td>
-      <td>3</td>
-      <td>0</td>
-      <td>3</td>
+      <td>4</td>
+      <td>4</td>
+      <td>10</td>
+      <td>10</td>
+      <td>4</td>
       <td>Standard</td>
       <td>Standard</td>
-      <td>208.0</td>
-      <td>0.021</td>
-      <td>-0.339</td>
+      <td>203.0</td>
+      <td>0.001</td>
+      <td>0.227</td>
     </tr>
   </tbody>
 </table>
 <p>5 rows × 92 columns</p>
 </div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">in_play</span><span class="p">[</span><span class="s1">&#39;events&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>events
+field_out                    856
+single                       321
+home_run                     106
+double                        94
+grounded_into_double_play     69
+force_out                     44
+field_error                   14
+sac_fly                       10
+double_play                    5
+fielders_choice                5
+fielders_choice_out            2
+triple_play                    1
+triple                         1
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">guerrero_stats</span><span class="o">.</span><span class="n">game_year</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>27      2023
+28      2023
+29      2023
+30      2023
+31      2023
+        ... 
+7865    2021
+7866    2021
+7867    2021
+7868    2021
+7869    2021
+Name: game_year, Length: 7546, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get only 2021 data</span>
+<span class="n">stat</span><span class="o">=</span><span class="s1">&#39;hit_distance_sc&#39;</span>
+<span class="n">limit</span><span class="o">=</span><span class="mi">380</span>
+
+<span class="k">def</span> <span class="nf">filter_stat</span><span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="n">lower_limit</span><span class="p">,</span> <span class="n">upper_limit</span><span class="p">):</span>
+    <span class="n">num</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2022</span><span class="p">,</span> <span class="mi">2023</span><span class="p">]:</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">guerrero_stats</span><span class="p">[</span><span class="n">guerrero_stats</span><span class="p">[</span><span class="s1">&#39;game_year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">year</span><span class="p">]</span>
+        <span class="n">temp</span><span class="o">=</span><span class="n">temp</span><span class="p">[</span><span class="n">temp</span><span class="p">[</span><span class="n">stat</span><span class="p">]</span><span class="o">&gt;</span><span class="n">lower_limit</span><span class="p">]</span>
+        <span class="n">temp</span><span class="o">=</span><span class="n">temp</span><span class="p">[</span><span class="n">temp</span><span class="p">[</span><span class="n">stat</span><span class="p">]</span><span class="o">&lt;</span><span class="n">upper_limit</span><span class="p">]</span>
+        <span class="n">num_temp</span><span class="o">=</span><span class="n">temp</span><span class="p">[</span><span class="n">stat</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+        <span class="n">num</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num_temp</span><span class="p">)</span>
+
+    <span class="k">return</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">filter_2_stats</span><span class="p">(</span><span class="n">stat1</span><span class="p">,</span> <span class="n">lower_limit1</span><span class="p">,</span> <span class="n">upper_limit1</span><span class="p">,</span> <span class="n">stat2</span><span class="p">,</span> <span class="n">lower_limit2</span><span class="p">,</span> <span class="n">upper_limit2</span><span class="p">):</span>
+    <span class="n">num</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2022</span><span class="p">,</span> <span class="mi">2023</span><span class="p">]:</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">guerrero_stats</span><span class="p">[</span><span class="n">guerrero_stats</span><span class="p">[</span><span class="s1">&#39;game_year&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">year</span><span class="p">]</span>
+        <span class="n">temp</span><span class="o">=</span><span class="n">temp</span><span class="p">[</span><span class="n">temp</span><span class="p">[</span><span class="n">stat1</span><span class="p">]</span><span class="o">&gt;</span><span class="n">lower_limit1</span><span class="p">]</span>
+        <span class="n">temp</span><span class="o">=</span><span class="n">temp</span><span class="p">[</span><span class="n">temp</span><span class="p">[</span><span class="n">stat1</span><span class="p">]</span><span class="o">&lt;</span><span class="n">upper_limit1</span><span class="p">]</span>
+        <span class="n">temp</span><span class="o">=</span><span class="n">temp</span><span class="p">[</span><span class="n">temp</span><span class="p">[</span><span class="n">stat2</span><span class="p">]</span><span class="o">&gt;</span><span class="n">lower_limit2</span><span class="p">]</span>
+        <span class="n">temp</span><span class="o">=</span><span class="n">temp</span><span class="p">[</span><span class="n">temp</span><span class="p">[</span><span class="n">stat2</span><span class="p">]</span><span class="o">&lt;</span><span class="n">upper_limit2</span><span class="p">]</span>
+        <span class="n">num_temp</span><span class="o">=</span><span class="n">temp</span><span class="p">[</span><span class="n">stat</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+        <span class="n">num</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num_temp</span><span class="p">)</span>
+
+    <span class="k">return</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">num=[]</span>
+<span class="sd">for year in [2021, 2022, 2023]:</span>
+<span class="sd">    temp = guerrero_stats[guerrero_stats[&#39;game_year&#39;] == year]</span>
+<span class="sd">    hr_temp=temp[temp[&#39;events&#39;]==&#39;home_run&#39;][stat].count()</span>
+<span class="sd">    hr.append(hr_temp)</span>
+<span class="sd">    num_temp=temp[temp[stat]&gt;limit][stat].count()</span>
+<span class="sd">    num.append(num_temp)</span>
+<span class="sd">    speed_temp=temp[temp[stat]&gt;limit][stat].count()</span>
+
+
+<span class="sd">print(num)</span>
+<span class="sd">print(hr)</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;distance &#39;</span><span class="p">,</span><span class="n">filter_stat</span><span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="mi">380</span><span class="p">,</span> <span class="mi">500</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;launch angle&#39;</span><span class="p">,</span> <span class="n">filter_stat</span><span class="p">(</span><span class="s1">&#39;launch_angle&#39;</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">35</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;launch speed&#39;</span><span class="p">,</span> <span class="n">filter_stat</span><span class="p">(</span><span class="s1">&#39;launch_speed&#39;</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">120</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;launch speed, launch angle&#39;</span><span class="p">,</span> <span class="n">filter_2_stats</span><span class="p">(</span><span class="s1">&#39;launch_speed&#39;</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="s1">&#39;launch_angle&#39;</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">35</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>distance  [51, 36, 29]
+launch angle [148, 149, 143]
+launch speed [200, 199, 169]
+launch speed, launch angle [49, 31, 29]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the hit distance </span>
+<span class="n">hit_distance</span><span class="o">=</span><span class="n">in_play</span><span class="p">[</span><span class="s1">&#39;hit_distance_sc&#39;</span><span class="p">]</span>
+<span class="c1"># sort the values in descending order</span>
+<span class="nb">sorted</span><span class="o">=</span><span class="n">hit_distance</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># print top 5 values</span>
+<span class="nb">sorted</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5195    467.0
+7240    465.0
+7124    461.0
+7654    456.0
+6883    451.0
+Name: hit_distance_sc, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">in_play</span><span class="p">[</span><span class="n">in_play</span><span class="p">[</span><span class="s1">&#39;launch_angle&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">10</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="s1">&#39;launch_speed&#39;</span><span class="p">,</span> <span class="s1">&#39;hit_distance_sc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;launch_speed&#39;, ylabel=&#39;hit_distance_sc&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/e3b95cf2f97081744d2a7ff414916da1c80135c73b2b10af68b244664b6f5c89.png" src="../_images/e3b95cf2f97081744d2a7ff414916da1c80135c73b2b10af68b244664b6f5c89.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_of_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;game_date&#39;</span><span class="p">,</span> <span class="s1">&#39;launch_speed&#39;</span><span class="p">,</span> <span class="s1">&#39;launch_angle&#39;</span><span class="p">,</span> <span class="s1">&#39;hit_distance_sc&#39;</span><span class="p">]</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">in_play</span><span class="p">[</span><span class="n">list_of_columns</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>game_date</th>
+      <th>launch_speed</th>
+      <th>launch_angle</th>
+      <th>hit_distance_sc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>7</th>
+      <td>2023-10-04</td>
+      <td>82.3</td>
+      <td>63.0</td>
+      <td>166.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>2023-10-04</td>
+      <td>92.1</td>
+      <td>31.0</td>
+      <td>317.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>2023-10-04</td>
+      <td>105.4</td>
+      <td>18.0</td>
+      <td>394.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>2023-10-03</td>
+      <td>98.5</td>
+      <td>42.0</td>
+      <td>307.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>2023-10-03</td>
+      <td>99.8</td>
+      <td>29.0</td>
+      <td>371.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 
@@ -945,6 +1227,22 @@ Name: count, dtype: int64
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Example Statcast baseball data API</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#look-at-what-columns-of-data-are-available">Look at what columns of data are available</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>
