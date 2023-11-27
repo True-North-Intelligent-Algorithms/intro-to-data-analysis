@@ -474,13 +474,13 @@ document.write(`
 <span class="c1"># average number of people who got covid in &#39;placebo group&#39;</span>
 <span class="n">placebomean</span> <span class="o">=</span> <span class="n">placebocovid</span><span class="o">/</span><span class="mi">15000</span>
 <span class="c1"># variance in placebo group</span>
-<span class="n">placebovariance</span> <span class="o">=</span> <span class="p">(</span><span class="n">placebomean</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">placebomean</span><span class="p">))</span>
+<span class="n">placebovariance</span> <span class="o">=</span> <span class="p">(</span><span class="n">placebomean</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">placebomean</span><span class="p">))</span>
 
 <span class="c1"># now the same numbers for the Vaccine group </span>
 <span class="n">vaccinesize</span> <span class="o">=</span> <span class="mi">15000</span>
-<span class="n">vaccinecovid</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">vaccinecovid</span> <span class="o">=</span> <span class="mi">180</span>
 <span class="n">vaccinemean</span> <span class="o">=</span> <span class="n">vaccinecovid</span><span class="o">/</span><span class="mi">15000</span>
-<span class="n">vaccinevariance</span> <span class="o">=</span> <span class="p">(</span><span class="n">vaccinemean</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">vaccinemean</span><span class="p">))</span>
+<span class="n">vaccinevariance</span> <span class="o">=</span> <span class="p">(</span><span class="n">vaccinemean</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">vaccinemean</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -493,7 +493,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_indResult(statistic=12.061011364712856, pvalue=2.0278513252517948e-33)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_indResult(statistic=1.032556951173647, pvalue=0.30181960713232897)
 </pre></div>
 </div>
 </div>
@@ -504,13 +504,13 @@ document.write(`
 <span class="c1"># note in this case only half as many got Covid in the Vaccine group.  It might be a relationship.  Is it?</span>
 
 <span class="n">placebosize</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">placebocovid</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">placebocovid</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">placebomean</span> <span class="o">=</span> <span class="n">placebocovid</span><span class="o">/</span><span class="n">placebosize</span>
-<span class="n">placebovariance</span> <span class="o">=</span> <span class="p">(</span><span class="n">placebomean</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">placebomean</span><span class="p">))</span>
+<span class="n">placebovariance</span> <span class="o">=</span> <span class="p">(</span><span class="n">placebomean</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">placebomean</span><span class="p">))</span>
 <span class="n">vaccinesize</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">vaccinecovid</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">vaccinecovid</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">vaccinemean</span> <span class="o">=</span> <span class="n">vaccinecovid</span><span class="o">/</span><span class="n">vaccinesize</span>
-<span class="n">vaccinevariance</span> <span class="o">=</span> <span class="p">(</span><span class="n">vaccinemean</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">vaccinemean</span><span class="p">))</span>
+<span class="n">vaccinevariance</span> <span class="o">=</span> <span class="p">(</span><span class="n">vaccinemean</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">vaccinemean</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -524,7 +524,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_indResult(statistic=1.616464882265102, pvalue=0.10758598258426674)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_indResult(statistic=3.333333333333333, pvalue=0.0010241414728258344)
 </pre></div>
 </div>
 </div>
