@@ -19,13 +19,6 @@ Note: Make sure you get the version with Python 3.7 (or higher) (NOT 2.7) or the
 * Lets the user run Python on a web page  
 * Divide computional steps into cells.  
 
-## Github
-
-* Join github ([see tutorial](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners))
-* Install [github desktop](https://desktop.github.com/) 
-* Watch [Github Desktop for Windows](https://www.youtube.com/watch?v=77W2JSL7-r8) tutorial
-* Clone the class github repository following instruction from [here](https://bnorthan.github.io/inf-428-data-analytics-online/Module1/CloneFromGitHub)
-
 ### Run IPython notebook 'hello world'
 
 1.  Start Anaconda Navigator  

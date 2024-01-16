@@ -1,5 +1,7 @@
 # Visual Studio Code
 
+Install visual studio code [from here](https://code.visualstudio.com/)
+
 Visual Studio Code is an IDE (Integrated Development Environment).  It can be used as a means to edit and test your code and is a more powerful alternative to editing Jupyter Notebooks in the web browser.  
 
 It features
@@ -14,8 +16,6 @@ It features
 ![image 1](vscode1.jpg)  
 
 ## Visual Studio Code source control (Git and GitHub) integration
-
-Show example of checking code into git live
 
 ![image 2](vscode2.jpg)  
 
