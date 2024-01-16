@@ -9,7 +9,7 @@
 
 | sub-module|Description|
 |---|---|
-|{What is Data Analysis]( /docs/courses/intro-to-data-analysis/module1/WhatIsDataAnalysis) | What is Data Analysis?<br>What skills are needed for Data Analysis? |
+|[What is Data Analysis]( /docs/courses/intro-to-data-analysis/module1/WhatIsDataAnalysis) | What is Data Analysis?<br>What skills are needed for Data Analysis? |
 |[Discussion](/docs/courses/intro-to-data-analysis/module1/Discussion) | Discuss your previous experience with Data Analysis |
 |[Clone from Github](/docs/courses/intro-to-data-analysis/module1/CloneFromGitHub) | Join Github <br> Install Git and Git Desktop <br> Get class repository |
 |[Anaconda/Python](/docs/courses/intro-to-data-analysis/module1/Python) | Why Python? Why Annaconda? <br>Install Python<br> Get and run example from Github|  

@@ -160,10 +160,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../10_intro/20_WhatIsDataAnalysis.html">What is Data Analysis?</a></li>
 
 
-<li class="toctree-l2"><a class="reference internal" href="../10_intro/30_CloneFromGitHub.html">Clone from GitHub</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../10_intro/35_VisualStudioCode.html">Visual Studio Code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../10_intro/40_Python.html">Python via Anaconda</a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="../10_intro/30_CloneFromGitHub.html">Fork and clone class repository from GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_intro/35_Anaconda_Python.html">Python via Anaconda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_intro/40_VisualStudioCode.html">Visual Studio Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../10_intro/50_Python_Tutorial.html">Python Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../10_intro/60_CSV.html">Open a CSV File in a Test Editor</a></li>
 
@@ -451,6 +450,70 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pybaseball
+  Downloading pybaseball-2.2.7-py3-none-any.whl.metadata (11 kB)
+Requirement already satisfied: numpy&gt;=1.13.0 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from pybaseball) (1.23.5)
+Requirement already satisfied: pandas&gt;=1.0.3 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from pybaseball) (2.1.1)
+Requirement already satisfied: beautifulsoup4&gt;=4.4.0 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from pybaseball) (4.12.2)
+Requirement already satisfied: requests&gt;=2.18.1 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from pybaseball) (2.31.0)
+Collecting lxml&gt;=4.2.1 (from pybaseball)
+  Downloading lxml-4.9.3-cp39-cp39-manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+Collecting pyarrow&gt;=1.0.1 (from pybaseball)
+  Downloading pyarrow-14.0.1-cp39-cp39-manylinux_2_28_x86_64.whl.metadata (3.0 kB)
+Collecting pygithub&gt;=1.51 (from pybaseball)
+  Downloading PyGithub-2.1.1-py3-none-any.whl.metadata (2.2 kB)
+Requirement already satisfied: scipy&gt;=1.4.0 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from pybaseball) (1.11.3)
+Requirement already satisfied: matplotlib&gt;=2.0.0 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from pybaseball) (3.8.0)
+Requirement already satisfied: tqdm&gt;=4.50.0 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from pybaseball) (4.66.1)
+Requirement already satisfied: attrs&gt;=20.3.0 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from pybaseball) (23.1.0)
+Requirement already satisfied: soupsieve&gt;1.2 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from beautifulsoup4&gt;=4.4.0-&gt;pybaseball) (2.5)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from matplotlib&gt;=2.0.0-&gt;pybaseball) (1.1.1)
+Requirement already satisfied: cycler&gt;=0.10 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from matplotlib&gt;=2.0.0-&gt;pybaseball) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from matplotlib&gt;=2.0.0-&gt;pybaseball) (4.43.1)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from matplotlib&gt;=2.0.0-&gt;pybaseball) (1.4.5)
+Requirement already satisfied: packaging&gt;=20.0 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from matplotlib&gt;=2.0.0-&gt;pybaseball) (23.2)
+Requirement already satisfied: pillow&gt;=6.2.0 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from matplotlib&gt;=2.0.0-&gt;pybaseball) (9.2.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from matplotlib&gt;=2.0.0-&gt;pybaseball) (3.1.1)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from matplotlib&gt;=2.0.0-&gt;pybaseball) (2.8.2)
+Requirement already satisfied: importlib-resources&gt;=3.2.0 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from matplotlib&gt;=2.0.0-&gt;pybaseball) (6.1.0)
+Requirement already satisfied: pytz&gt;=2020.1 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from pandas&gt;=1.0.3-&gt;pybaseball) (2023.3.post1)
+Requirement already satisfied: tzdata&gt;=2022.1 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from pandas&gt;=1.0.3-&gt;pybaseball) (2023.3)
+Collecting pynacl&gt;=1.4.0 (from pygithub&gt;=1.51-&gt;pybaseball)
+  Downloading PyNaCl-1.5.0-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl (856 kB)
+     <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">856.7/856.7 kB</span> <span class=" -Color -Color-Red">5.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>m eta <span class=" -Color -Color-Cyan">0:00:01</span>[36m0:00:01
+?25hCollecting pyjwt&gt;=2.4.0 (from pyjwt[crypto]&gt;=2.4.0-&gt;pygithub&gt;=1.51-&gt;pybaseball)
+  Downloading PyJWT-2.8.0-py3-none-any.whl.metadata (4.2 kB)
+Requirement already satisfied: typing-extensions&gt;=4.0.0 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from pygithub&gt;=1.51-&gt;pybaseball) (4.8.0)
+Requirement already satisfied: urllib3&gt;=1.26.0 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from pygithub&gt;=1.51-&gt;pybaseball) (2.0.6)
+Requirement already satisfied: Deprecated in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from pygithub&gt;=1.51-&gt;pybaseball) (1.2.14)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from requests&gt;=2.18.1-&gt;pybaseball) (3.3.0)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from requests&gt;=2.18.1-&gt;pybaseball) (3.4)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from requests&gt;=2.18.1-&gt;pybaseball) (2023.7.22)
+Requirement already satisfied: zipp&gt;=3.1.0 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from importlib-resources&gt;=3.2.0-&gt;matplotlib&gt;=2.0.0-&gt;pybaseball) (3.17.0)
+Collecting cryptography&gt;=3.4.0 (from pyjwt[crypto]&gt;=2.4.0-&gt;pygithub&gt;=1.51-&gt;pybaseball)
+  Downloading cryptography-41.0.5-cp37-abi3-manylinux_2_28_x86_64.whl.metadata (5.2 kB)
+Requirement already satisfied: cffi&gt;=1.4.1 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from pynacl&gt;=1.4.0-&gt;pygithub&gt;=1.51-&gt;pybaseball) (1.16.0)
+Requirement already satisfied: six&gt;=1.5 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib&gt;=2.0.0-&gt;pybaseball) (1.16.0)
+Requirement already satisfied: wrapt&lt;2,&gt;=1.10 in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from Deprecated-&gt;pygithub&gt;=1.51-&gt;pybaseball) (1.15.0)
+Requirement already satisfied: pycparser in /home/bnorthan/mambaforge/envs/decon-dl-env2/lib/python3.9/site-packages (from cffi&gt;=1.4.1-&gt;pynacl&gt;=1.4.0-&gt;pygithub&gt;=1.51-&gt;pybaseball) (2.21)
+Downloading pybaseball-2.2.7-py3-none-any.whl (426 kB)
+   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">426.1/426.1 kB</span> <span class=" -Color -Color-Red">7.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>[31m10.5 MB/s eta <span class=" -Color -Color-Cyan">0:00:01</span>
+?25hDownloading lxml-4.9.3-cp39-cp39-manylinux_2_28_x86_64.whl (8.0 MB)
+   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">8.0/8.0 MB</span> <span class=" -Color -Color-Red">9.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:000:00:01</span>[36m0:00:01:01
+?25hDownloading pyarrow-14.0.1-cp39-cp39-manylinux_2_28_x86_64.whl (38.0 MB)
+   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">38.0/38.0 MB</span> <span class=" -Color -Color-Red">9.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>m eta <span class=" -Color -Color-Cyan">0:00:010:00:01</span>
+?25hDownloading PyGithub-2.1.1-py3-none-any.whl (302 kB)
+   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">302.9/302.9 kB</span> <span class=" -Color -Color-Red">6.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span> MB/s eta <span class=" -Color -Color-Cyan">0:00:01</span>
+?25hDownloading PyJWT-2.8.0-py3-none-any.whl (22 kB)
+Downloading cryptography-41.0.5-cp37-abi3-manylinux_2_28_x86_64.whl (4.4 MB)
+   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">4.4/4.4 MB</span> <span class=" -Color -Color-Red">9.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>[31m10.4 MB/s eta <span class=" -Color -Color-Cyan">0:00:01</span>
+?25hInstalling collected packages: pyjwt, pyarrow, lxml, pynacl, cryptography, pygithub, pybaseball
+Successfully installed cryptography-41.0.5 lxml-4.9.3 pyarrow-14.0.1 pybaseball-2.2.7 pygithub-2.1.1 pyjwt-2.8.0 pynacl-1.5.0
+Note: you may need to restart the kernel to use updated packages.
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -462,9 +525,6 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gathering player lookup table. This may take a moment.
-</pre></div>
-</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -736,6 +796,18 @@ document.write(`
        &#39;if_fielding_alignment&#39;, &#39;of_fielding_alignment&#39;, &#39;spin_axis&#39;,
        &#39;delta_home_win_exp&#39;, &#39;delta_run_exp&#39;],
       dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">guerrero_stats</span><span class="p">[</span><span class="s1">&#39;hit_distance_sc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>148.95025417574436
 </pre></div>
 </div>
 </div>

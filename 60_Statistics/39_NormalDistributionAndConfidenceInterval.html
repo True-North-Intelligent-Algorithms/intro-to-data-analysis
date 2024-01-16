@@ -162,10 +162,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../10_intro/20_WhatIsDataAnalysis.html">What is Data Analysis?</a></li>
 
 
-<li class="toctree-l2"><a class="reference internal" href="../10_intro/30_CloneFromGitHub.html">Clone from GitHub</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../10_intro/35_VisualStudioCode.html">Visual Studio Code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../10_intro/40_Python.html">Python via Anaconda</a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="../10_intro/30_CloneFromGitHub.html">Fork and clone class repository from GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_intro/35_Anaconda_Python.html">Python via Anaconda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../10_intro/40_VisualStudioCode.html">Visual Studio Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../10_intro/50_Python_Tutorial.html">Python Tutorial</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../10_intro/60_CSV.html">Open a CSV File in a Test Editor</a></li>
 
@@ -470,29 +469,96 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">interval</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method interval in module scipy.stats._distn_infrastructure:
+
+interval(confidence, *args, **kwds) method of scipy.stats._continuous_distns.norm_gen instance
+    Confidence interval with equal areas around the median.
+    
+    Parameters
+    ----------
+    confidence : array_like of float
+        Probability that an rv will be drawn from the returned range.
+        Each value should be in the range [0, 1].
+    arg1, arg2, ... : array_like
+        The shape parameter(s) for the distribution (see docstring of the
+        instance object for more information).
+    loc : array_like, optional
+        location parameter, Default is 0.
+    scale : array_like, optional
+        scale parameter, Default is 1.
+    
+    Returns
+    -------
+    a, b : ndarray of float
+        end-points of range that contain ``100 * alpha %`` of the rv&#39;s
+        possible values.
+    
+    Notes
+    -----
+    This is implemented as ``ppf([p_tail, 1-p_tail])``, where
+    ``ppf`` is the inverse cumulative distribution function and
+    ``p_tail = (1-confidence)/2``. Suppose ``[c, d]`` is the support of a
+    discrete distribution; then ``ppf([0, 1]) == (c-1, d)``. Therefore,
+    when ``confidence=1`` and the distribution is discrete, the left end
+    of the interval will be beyond the support of the distribution.
+    For discrete distributions, the interval will limit the probability
+    in each tail to be less than or equal to ``p_tail`` (usually
+    strictly less).
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span><span class="o">=</span><span class="mi">60</span>
-<span class="n">std</span><span class="o">=</span><span class="mi">500</span>
+<span class="n">std</span><span class="o">=</span><span class="mi">5</span>
 <span class="n">numsamples</span><span class="o">=</span><span class="mi">10</span>
 
 <span class="n">plotNormalAndComputeConfidence</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">plotNormalAndComputeConfidence</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plotNormalAndComputeConfidence</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">plotNormalAndComputeConfidence</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+<span class="n">plotNormalAndComputeConfidence</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="mi">100000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>confidence interval of data
-(-1063.4627430003497, 1089.7455462908738)
+(56.28849526016413, 73.67062019278032)
 confidence interval of mean
-(-401.0580082175739, 427.34081150809817)
+(61.635865467317096, 68.32324998562734)
 
 confidence interval of data
-(-932.6822620498822, 1048.0348075819998)
+(49.04480886567677, 69.71193443892768)
 confidence interval of mean
-(47.770993183979826, 67.58155234813765)
+(58.32695815028232, 60.42978515432213)
+
+confidence interval of data
+(50.34686703644135, 70.14746660662615)
+confidence interval of mean
+(59.93355524175831, 60.56077840130919)
+
+confidence interval of data
+(50.23555502937667, 69.7923478941011)
+confidence interval of mean
+(59.91615076924023, 60.111752154237536)
+
+confidence interval of data
+(50.207305159592735, 69.801594095241)
+confidence interval of mean
+(59.97346780642851, 60.03543144840523)
 </pre></div>
 </div>
-<img alt="../_images/cbc4a2fbf1f2008f90bdc879bed339a2b5b9cceba090dd6eacee8b2a1e02fc45.png" src="../_images/cbc4a2fbf1f2008f90bdc879bed339a2b5b9cceba090dd6eacee8b2a1e02fc45.png" />
-<img alt="../_images/41f471681bfa7aefbe3b79ed9e803bd16f9aafcb46311d407900d5c68077df3a.png" src="../_images/41f471681bfa7aefbe3b79ed9e803bd16f9aafcb46311d407900d5c68077df3a.png" />
+<img alt="../_images/d32d53a12d571174045a6818684f51a86573e8b69bac19ddb619c62bbf8d1c80.png" src="../_images/d32d53a12d571174045a6818684f51a86573e8b69bac19ddb619c62bbf8d1c80.png" />
+<img alt="../_images/9037d3bfaf137b30baf72a786416e1e149d0209745e1e9d54a5e67462578255b.png" src="../_images/9037d3bfaf137b30baf72a786416e1e149d0209745e1e9d54a5e67462578255b.png" />
+<img alt="../_images/53798d50c983c7021096e49a708f0465d44bbff595cec1fab46785b11275a16a.png" src="../_images/53798d50c983c7021096e49a708f0465d44bbff595cec1fab46785b11275a16a.png" />
+<img alt="../_images/853e136e318f6374d7b92259f383d789efa3ad8295c9448dcdd34a92f0866744.png" src="../_images/853e136e318f6374d7b92259f383d789efa3ad8295c9448dcdd34a92f0866744.png" />
+<img alt="../_images/a17ea44bcdf65c1c2a82ccfc5b631c3b6ea7d00acec9d342dbc5675bb6916af3.png" src="../_images/a17ea44bcdf65c1c2a82ccfc5b631c3b6ea7d00acec9d342dbc5675bb6916af3.png" />
 </div>
 </div>
 <div class="cell docutils container">
