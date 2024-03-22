@@ -13,7 +13,6 @@ dataingdata.csv - this is the dating data.  Should be ready for Machine Learning
 
 titanic_preprocessed.csv - it the titanic data with some preprocessing done to deal with missing data.  Use this for the titanic question.  (note more preprocessing may be needed)   
 
-
 1. Explain why we divide data into testing and training sets. (1 point)    
 
 2. A class takes a test and the entire class does horrible.  The prof gives them a second chance.  The next week   a) The prof gives them the exact same test over again, same questions, same answers.  The students do well this time.  Have they really learned anything?  b) Alternatively the prof give them a slightly different test on the same material.  Different questions but on the same concepts.  The students do well this time.  Have they learned anything?   c) Explain how this anecdote relates to the concept of 'self prediction'   See [this video](https://www.youtube.com/watch?v=5fxB3XPY0CU) for hints.  (1 point)  
